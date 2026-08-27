@@ -30,12 +30,12 @@ jobs:
         with:
           enablement: true
 
-      # Publish only the static site (HTML + css/ + js/), not .github / .vs, etc.
+      # Publish only the static site (HTML + assets + css/ + js/), not .github / .vs, etc.
       # .nojekyll stops GitHub from running Jekyll, which can drop css/js folders.
       - name: Prepare site
         run: |
           mkdir -p _site/css _site/js
-          cp index.html CNAME _site/
+          cp index.html CNAME Background.mp3 _site/
           cp css/styles.css _site/css/
           cp js/main.js js/shader.js _site/js/
           touch _site/.nojekyll
