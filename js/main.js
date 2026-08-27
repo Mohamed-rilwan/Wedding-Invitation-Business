@@ -149,76 +149,64 @@
     }, { passive: true });
   }
 
-  /* ---------- Wedding chimes (opt-in, WebAudio — no external file) ---------- */
+  /* ---------- Ambience (Background.mp3, soft and loopable) ---------- */
   const muteBtn = document.getElementById('muteToggle');
-  let audioCtx = null, master = null, delay = null, chimeTimer = null, playing = false;
+  const ambience = document.getElementById('ambience');
+  const VOLUME = 0.18;          // gentle background level
+  const FADE = 1800;            // ms to ease in / out
+  let fadeTimer = null;
 
-  // pleasant pentatonic bell scale (Hz) — C5 D5 E5 G5 A5 C6
-  const CHIME_NOTES = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50];
-
-  function buildAudio() {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    master = audioCtx.createGain();
-    master.gain.value = 0.0;
-    const lp = audioCtx.createBiquadFilter();
-    lp.type = 'lowpass'; lp.frequency.value = 5200;
-    // sparkle: gentle feedback delay
-    delay = audioCtx.createDelay(1.0);
-    delay.delayTime.value = 0.33;
-    const fb = audioCtx.createGain(); fb.gain.value = 0.3;
-    delay.connect(fb); fb.connect(delay);
-    master.connect(lp);
-    lp.connect(audioCtx.destination);
-    lp.connect(delay);
-    delay.connect(audioCtx.destination);
+  function fadeTo(target, done) {
+    clearInterval(fadeTimer);
+    const from = ambience.volume;
+    const steps = Math.max(1, Math.round(FADE / 50));
+    let n = 0;
+    fadeTimer = setInterval(() => {
+      n += 1;
+      ambience.volume = Math.min(1, Math.max(0, from + (target - from) * (n / steps)));
+      if (n >= steps) { clearInterval(fadeTimer); if (done) done(); }
+    }, 50);
   }
 
-  // one bell strike: fundamental + octave shimmer, fast attack, long decay
-  function strike(freq, when, vel) {
-    const o1 = audioCtx.createOscillator(); o1.type = 'triangle'; o1.frequency.value = freq;
-    const o2 = audioCtx.createOscillator(); o2.type = 'sine';     o2.frequency.value = freq * 2.01;
-    const g  = audioCtx.createGain();
-    g.gain.setValueAtTime(0.0001, when);
-    g.gain.exponentialRampToValueAtTime(vel, when + 0.008);
-    g.gain.exponentialRampToValueAtTime(0.0001, when + 2.4);
-    const g2 = audioCtx.createGain(); g2.gain.value = 0.35;
-    o1.connect(g); o2.connect(g2); g2.connect(g);
-    g.connect(master);
-    o1.start(when); o2.start(when);
-    o1.stop(when + 2.5); o2.stop(when + 2.5);
+  function setToggle(on) { muteBtn.setAttribute('aria-pressed', String(on)); }
+
+  function startAmbience() {
+    ambience.volume = 0;
+    return ambience.play().then(() => { setToggle(true); fadeTo(VOLUME); });
   }
 
-  // gentle wedding melody in Mohanam raga (original, loops while playing)
-  const MELODY = [
-    [3,1],[4,1],[5,2],[4,1],[3,1],[2,2],
-    [3,1],[2,1],[1,2],[0,2],
-    [2,1],[3,1],[4,2],[3,1],[2,1],[1,2],[0,4]
-  ];
-  function scheduleChimes() {
-    const beat = 0.42;
-    const playPhrase = () => {
-      if (!playing || !audioCtx) return;
-      const start = audioCtx.currentTime + 0.06;
-      let t = 0;
-      for (const [idx, beats] of MELODY) {
-        strike(CHIME_NOTES[idx], start + t * beat, 0.2);
-        t += beats;
+  function stopAmbience() {
+    fadeTo(0, () => ambience.pause());
+    setToggle(false);
+  }
+
+  if (ambience && muteBtn) {
+    // visitors who muted before keep it muted
+    const wanted = localStorage.getItem('rk-audio') !== 'off';
+
+    if (wanted) {
+      startAmbience().catch(() => {
+        // browsers block sound until the visitor interacts — start on the first gesture
+        const kick = () => {
+          startAmbience().catch(() => {});
+          ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach((ev) =>
+            window.removeEventListener(ev, kick));
+        };
+        ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach((ev) =>
+          window.addEventListener(ev, kick, { once: false, passive: true }));
+      });
+    }
+
+    muteBtn.addEventListener('click', () => {
+      if (ambience.paused) {
+        localStorage.setItem('rk-audio', 'on');
+        startAmbience().catch(() => {});
+      } else {
+        localStorage.setItem('rk-audio', 'off');
+        stopAmbience();
       }
-      chimeTimer = setTimeout(playPhrase, (t * beat + 1.4) * 1000);
-    };
-    playPhrase();
+    });
   }
-
-  muteBtn.addEventListener('click', () => {
-    if (!audioCtx) buildAudio();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    playing = !playing;
-    muteBtn.setAttribute('aria-pressed', String(playing));
-    master.gain.cancelScheduledValues(audioCtx.currentTime);
-    master.gain.linearRampToValueAtTime(playing ? 0.6 : 0.0, audioCtx.currentTime + 0.4);
-    if (playing) scheduleChimes();
-    else if (chimeTimer) { clearTimeout(chimeTimer); chimeTimer = null; }
-  });
 
   /* ---------- Theme switch (blue / green) ---------- */
   const themeBtn = document.getElementById('themeSwitch');
