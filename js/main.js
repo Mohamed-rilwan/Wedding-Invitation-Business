@@ -152,48 +152,56 @@
   /* ---------- Ambience (Background.mp3, soft and loopable) ---------- */
   const muteBtn = document.getElementById('muteToggle');
   const ambience = document.getElementById('ambience');
-  const VOLUME = 0.18;          // gentle background level
-  const FADE = 1800;            // ms to ease in / out
+  const VOLUME = 0.4;           // gentle background level
+  const FADE = 1600;            // ms to ease in / out
   let fadeTimer = null;
+
+  ambience.addEventListener('error', () => console.warn('ambience: cannot load Background.mp3'));
 
   function fadeTo(target, done) {
     clearInterval(fadeTimer);
-    const from = ambience.volume;
-    const steps = Math.max(1, Math.round(FADE / 50));
+    const from = ambience.volume, steps = 32;
     let n = 0;
     fadeTimer = setInterval(() => {
       n += 1;
       ambience.volume = Math.min(1, Math.max(0, from + (target - from) * (n / steps)));
       if (n >= steps) { clearInterval(fadeTimer); if (done) done(); }
-    }, 50);
+    }, FADE / steps);
   }
 
-  function setToggle(on) { muteBtn.setAttribute('aria-pressed', String(on)); }
-
   function startAmbience() {
+    ambience.muted = false;
     ambience.volume = 0;
-    return ambience.play().then(() => { setToggle(true); fadeTo(VOLUME); });
+    return Promise.resolve(ambience.play()).then(() => {
+      muteBtn.setAttribute('aria-pressed', 'true');
+      muteBtn.classList.remove('mute-toggle--waiting');
+      fadeTo(VOLUME);
+    });
   }
 
   function stopAmbience() {
-    fadeTo(0, () => ambience.pause());
-    setToggle(false);
+    muteBtn.setAttribute('aria-pressed', 'false');
+    fadeTo(0, () => {
+      if (muteBtn.getAttribute('aria-pressed') === 'false') ambience.pause();
+    });
   }
 
   if (ambience && muteBtn) {
     // visitors who muted before keep it muted
     const wanted = localStorage.getItem('rk-audio') !== 'off';
+    const GESTURES = ['pointerdown', 'touchend', 'keydown', 'wheel', 'scroll'];
 
     if (wanted) {
       startAmbience().catch(() => {
-        // browsers block sound until the visitor interacts — start on the first gesture
-        const kick = () => {
-          startAmbience().catch(() => {});
-          ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach((ev) =>
-            window.removeEventListener(ev, kick));
+        // phones always block sound until the visitor interacts — wait for a gesture
+        muteBtn.classList.add('mute-toggle--waiting');
+        const kick = (e) => {
+          if (e.target && e.target.closest && e.target.closest('#muteToggle')) return;
+          startAmbience()
+            .then(() => GESTURES.forEach((ev) => window.removeEventListener(ev, kick)))
+            .catch(() => {});
         };
-        ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach((ev) =>
-          window.addEventListener(ev, kick, { once: false, passive: true }));
+        GESTURES.forEach((ev) => window.addEventListener(ev, kick, { passive: true }));
       });
     }
 
@@ -206,6 +214,21 @@
         stopAmbience();
       }
     });
+  }
+
+  /* ---------- Venue map: illustrated card swaps in the live map ---------- */
+  const mapCard = document.getElementById('mapCard');
+  const mapWrap = document.getElementById('venueMap');
+  if (mapCard && mapWrap) {
+    mapCard.addEventListener('click', () => {
+      const frame = document.createElement('iframe');
+      frame.title = 'Map to Rani Mahal, Blue Lagoon Wedding Complex, Neelankarai, Chennai';
+      frame.loading = 'lazy';
+      frame.referrerPolicy = 'no-referrer-when-downgrade';
+      frame.src = mapWrap.dataset.src;
+      mapWrap.insertBefore(frame, mapWrap.firstChild);
+      mapCard.remove();
+    }, { once: true });
   }
 
   /* ---------- Theme switch (blue / green) ---------- */

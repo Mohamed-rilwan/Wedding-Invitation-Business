@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Tangerine:wght@400;700&family=Noto+Sans+Tamil:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=8" />
+  <link rel="stylesheet" href="css/styles.css?v=11" />
 </head>
 <body>
 
@@ -230,15 +230,41 @@
                  Navigate (Live)
               </a>
             </div>
-            <p class="venue-info__note">Ample parking available · Kindly arrive by 10:45 AM</p>
+            <p class="venue-info__note">Ample parking available · Kindly arrive by 10:00 AM</p>
           </div>
 
-          <div class="venue-map" data-reveal>
-            <iframe
-              title="Map to Rani Mahal, Blue Lagoon Wedding Complex, Neelankarai, Chennai"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=Blue%20Lagoon%20Wedding%20Complex%20Neelankarai%20Chennai%20600115&t=&z=15&ie=UTF8&iwloc=&output=embed">
-            </iframe>
+          <div class="venue-map" data-reveal id="venueMap"
+               data-src="https://maps.google.com/maps?q=Blue%20Lagoon%20Wedding%20Complex%20Neelankarai%20Chennai%20600115&t=&z=15&ie=UTF8&iwloc=&output=embed">
+            <button class="mapcard" id="mapCard" type="button"
+                    aria-label="Show the live map to Rani Mahal, Neelankarai">
+              <svg class="mapcard__art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <!-- Bay of Bengal -->
+                <path class="mapcard__sea" d="M330 0c-8 60-14 120-6 180s18 90 24 120h52V0z"/>
+                <g class="mapcard__waves">
+                  <path d="M336 60h44M332 104h48M334 150h46M338 196h42M344 242h36"/>
+                </g>
+                <!-- coast + side streets -->
+                <path class="mapcard__coast" d="M330 0c-8 60-14 120-6 180s18 90 24 120"/>
+                <g class="mapcard__streets">
+                  <path d="M0 74h250M0 148h236M0 222h248M84 0v300M170 0v300"/>
+                </g>
+                <!-- East Coast Road -->
+                <path class="mapcard__ecr" d="M262 -10c-6 70-10 140-4 210 3 40 8 70 12 110"/>
+                <path class="mapcard__route" d="M262 -10c-6 70-10 140-4 210 3 40 8 70 12 110"/>
+                <!-- venue -->
+                <g class="mapcard__pin" transform="translate(258 150)">
+                  <circle class="mapcard__ping" r="10"/>
+                  <circle class="mapcard__ping mapcard__ping--2" r="10"/>
+                  <path class="mapcard__drop" d="M0-26c-8 0-14 6-14 14 0 10 14 26 14 26s14-16 14-26c0-8-6-14-14-14z"/>
+                  <circle class="mapcard__dot" cy="-12" r="4.6"/>
+                </g>
+              </svg>
+
+              <span class="mapcard__label">
+                <span class="mapcard__name">Rani Mahal</span>
+                <span class="mapcard__hint">Tap for the live map</span>
+              </span>
+            </button>
             <div class="venue-map__frame" aria-hidden="true"></div>
           </div>
         </div>
@@ -291,7 +317,7 @@
 
   </main>
 
-  <audio id="ambience" src="Background.mp3" loop preload="auto"></audio>
+  <audio id="ambience" src="Background.mp3" loop preload="auto" playsinline></audio>
 
   <button class="mute-toggle" id="muteToggle" aria-pressed="false" title="Toggle ambience">
     <span class="mute-toggle__on">♪</span>
@@ -306,7 +332,7 @@
     <span class="theme-switch__label" id="themeLabel">Blue</span>
   </button>
 
-  <script src="js/shader.js?v=7"></script>
-  <script src="js/main.js?v=8"></script>
+  <script src="js/shader.js?v=10"></script>
+  <script src="js/main.js?v=12"></script>
 </body>
 </html>

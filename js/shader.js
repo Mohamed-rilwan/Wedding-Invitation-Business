@@ -7,20 +7,31 @@
   const canvas = document.getElementById('gl');
   const gl = canvas.getContext('webgl', { antialias: true, alpha: false, powerPreference: 'high-performance' });
 
-  // Graceful fallback: painted CSS gradient if WebGL is unavailable.
-  if (!gl) {
-    canvas.style.background =
-      'radial-gradient(120% 100% at 30% 20%,#0f7fb8,#013a5d 55%,#001a2e)';
-    return;
+  // Painted CSS gradient whenever the shader can't run — never a flat, dull canvas.
+  function paintFallback() {
+    const green = document.documentElement.getAttribute('data-theme') === 'green';
+    canvas.style.background = green
+      ? 'radial-gradient(120% 100% at 30% 20%,#1c7a54,#0b3d2e 55%,#04180f)'
+      : 'radial-gradient(120% 100% at 30% 20%,#0f7fb8,#013a5d 55%,#001a2e)';
   }
+  window.addEventListener('themechange', () => {
+    if (canvas.style.background) paintFallback();
+  });
+
+  if (!gl) { paintFallback(); return; }
 
   const vert = `
     attribute vec2 p;
     void main(){ gl_Position = vec4(p, 0.0, 1.0); }
   `;
 
+  // some mobile GPUs have no highp in fragment shaders — asking for it kills the compile
+  const hp = gl.getShaderPrecisionFormat &&
+             gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT);
+  const PRECISION = (hp && hp.precision > 0) ? 'highp' : 'mediump';
+
   const frag = `
-    precision highp float;
+    precision ${PRECISION} float;
     uniform vec2  u_res;
     uniform float u_time;
     uniform vec2  u_mouse;
@@ -124,14 +135,24 @@
     gl.compileShader(s);
     if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
       console.warn(gl.getShaderInfoLog(s));
+      return null;
     }
     return s;
   }
 
+  const vs = compile(gl.VERTEX_SHADER, vert);
+  const fs = compile(gl.FRAGMENT_SHADER, frag);
+  if (!vs || !fs) { paintFallback(); return; }
+
   const prog = gl.createProgram();
-  gl.attachShader(prog, compile(gl.VERTEX_SHADER, vert));
-  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, frag));
+  gl.attachShader(prog, vs);
+  gl.attachShader(prog, fs);
   gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+    console.warn(gl.getProgramInfoLog(prog));
+    paintFallback();
+    return;
+  }
   gl.useProgram(prog);
 
   const buf = gl.createBuffer();
@@ -176,6 +197,13 @@
   document.addEventListener('visibilitychange', () => {
     running = !document.hidden;
     if (running) requestAnimationFrame(loop);
+  });
+
+  // a lost context (common when a phone backgrounds the tab) would freeze on a dead frame
+  canvas.addEventListener('webglcontextlost', (e) => {
+    e.preventDefault();
+    running = false;
+    paintFallback();
   });
 
   function loop(now) {
