@@ -39,6 +39,31 @@
   --vig-rgb:2,14,9;
 }
 
+/* ---- Rose Gold theme (blush + rose gold) ---- */
+:root[data-theme="rosegold"]{
+  --emerald-900:#2a1418;
+  --emerald-800:#3a1c22;
+  --emerald-700:#552832;
+  --emerald-600:#7a3a45;
+  --glass-mid-rgb:85,40,50;
+  --glass-deep-rgb:42,20,24;
+  --vig-rgb:26,12,14;
+  --gold:#e0a875;
+  --gold-soft:#f0c9a3;
+  --gold-deep:#b87a4d;
+}
+
+/* ---- Midnight Plum theme (deep purple + gold) ---- */
+:root[data-theme="midnight"]{
+  --emerald-900:#150c24;
+  --emerald-800:#20132f;
+  --emerald-700:#2f1c47;
+  --emerald-600:#452a66;
+  --glass-mid-rgb:47,28,71;
+  --glass-deep-rgb:21,12,36;
+  --vig-rgb:13,8,22;
+}
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:clamp(17px,1rem + 0.4vw,21px)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

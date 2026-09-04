@@ -9,10 +9,14 @@
 
   // Painted CSS gradient whenever the shader can't run — never a flat, dull canvas.
   function paintFallback() {
-    const green = document.documentElement.getAttribute('data-theme') === 'green';
-    canvas.style.background = green
-      ? 'radial-gradient(120% 100% at 30% 20%,#1c7a54,#0b3d2e 55%,#04180f)'
-      : 'radial-gradient(120% 100% at 30% 20%,#0f7fb8,#013a5d 55%,#001a2e)';
+    const theme = document.documentElement.getAttribute('data-theme');
+    const gradients = {
+      green:    'radial-gradient(120% 100% at 30% 20%,#1c7a54,#0b3d2e 55%,#04180f)',
+      rosegold: 'radial-gradient(120% 100% at 30% 20%,#a85a68,#552832 55%,#2a1418)',
+      midnight: 'radial-gradient(120% 100% at 30% 20%,#5c3a86,#2f1c47 55%,#150c24)',
+    };
+    canvas.style.background = gradients[theme]
+      || 'radial-gradient(120% 100% at 30% 20%,#0f7fb8,#013a5d 55%,#001a2e)';
   }
   window.addEventListener('themechange', () => {
     if (canvas.style.background) paintFallback();
@@ -36,6 +40,7 @@
     uniform float u_time;
     uniform vec2  u_mouse;
     uniform float u_green;   // 0 = blue theme, 1 = green theme
+    uniform float u_theme;   // 0 = blue/green mix, 1 = rosegold, 2 = midnight
 
     // --- 2D simplex noise (Ashima / Stefan Gustavson) ---
     vec3 mod289(vec3 x){ return x - floor(x*(1.0/289.0))*289.0; }
@@ -111,6 +116,29 @@
       cLite  = mix(cLite,  gLite,  u_green);
       cLiteS = mix(cLiteS, gLiteS, u_green);
 
+      // rose gold palette (blush + rose gold)
+      vec3 rDeep  = vec3(0.165,0.078,0.094);
+      vec3 rMid   = vec3(0.227,0.109,0.133);
+      vec3 rTeal  = vec3(0.333,0.157,0.196);
+      vec3 rLite  = vec3(0.878,0.659,0.459);
+      vec3 rLiteS = vec3(0.941,0.788,0.639);
+
+      // midnight plum palette (deep purple + gold)
+      vec3 mDeep  = vec3(0.082,0.047,0.141);
+      vec3 mMid   = vec3(0.125,0.075,0.184);
+      vec3 mTeal  = vec3(0.184,0.109,0.278);
+      vec3 mLite  = vec3(0.847,0.698,0.353);
+      vec3 mLiteS = vec3(0.906,0.804,0.576);
+
+      // u_theme picks the whole palette outright — these styles never blend live
+      float isRose = step(0.5, u_theme) * step(u_theme, 1.5);
+      float isMid  = step(1.5, u_theme);
+      cDeep  = mix(mix(cDeep,  rDeep,  isRose), mDeep,  isMid);
+      cMid   = mix(mix(cMid,   rMid,   isRose), mMid,   isMid);
+      cTeal  = mix(mix(cTeal,  rTeal,  isRose), mTeal,  isMid);
+      cLite  = mix(mix(cLite,  rLite,  isRose), mLite,  isMid);
+      cLiteS = mix(mix(cLiteS, rLiteS, isRose), mLiteS, isMid);
+
       vec3 col = mix(cDeep, cMid, clamp(f*0.5+0.5,0.0,1.0));
       col = mix(col, cTeal, clamp(length(q)*0.9,0.0,1.0));
       // highlight veins where warp field peaks
@@ -120,7 +148,9 @@
 
       // soft central glow behind content
       float glow = smoothstep(1.0, 0.05, length(p));
-      col += mix(vec3(0.05,0.10,0.14), vec3(0.05,0.10,0.08), u_green) * glow;
+      vec3 glowCol = mix(vec3(0.05,0.10,0.14), vec3(0.05,0.10,0.08), u_green);
+      glowCol = mix(mix(glowCol, vec3(0.14,0.06,0.07), isRose), vec3(0.09,0.05,0.13), isMid);
+      col += glowCol * glow;
 
       // gentle vignette
       col *= 1.0 - 0.35*length(p*0.75);
@@ -166,8 +196,17 @@
   const uTime  = gl.getUniformLocation(prog, 'u_time');
   const uMouse = gl.getUniformLocation(prog, 'u_mouse');
   const uGreen = gl.getUniformLocation(prog, 'u_green');
+  const uTheme = gl.getUniformLocation(prog, 'u_theme');
 
+  // 0 = blue/green mix, 1 = rosegold, 2 = midnight — matches the CSS data-theme values
+  function themeIndex() {
+    const t = document.documentElement.getAttribute('data-theme');
+    if (t === 'rosegold') return 1;
+    if (t === 'midnight') return 2;
+    return 0;
+  }
   let green = document.documentElement.getAttribute('data-theme') === 'green' ? 1 : 0;
+  let theme = themeIndex();
 
   const mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5 };
   function pointer(x, y) {
@@ -212,11 +251,13 @@
     mouse.y += (mouse.ty - mouse.y) * 0.05;
     const target = document.documentElement.getAttribute('data-theme') === 'green' ? 1 : 0;
     green += (target - green) * 0.06;
+    theme = themeIndex();
     const t = reduced ? 0 : (now - start) * 0.001;
     gl.uniform2f(uRes, canvas.width, canvas.height);
     gl.uniform1f(uTime, t);
     gl.uniform2f(uMouse, mouse.x, mouse.y);
     gl.uniform1f(uGreen, green);
+    gl.uniform1f(uTheme, theme);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
     if (!reduced) requestAnimationFrame(loop);
   }
@@ -225,7 +266,10 @@
 
   // repaint once on theme change for reduced-motion users
   window.addEventListener('themechange', () => {
-    if (reduced) { green = document.documentElement.getAttribute('data-theme') === 'green' ? 1 : 0;
-                   requestAnimationFrame(loop); }
+    if (reduced) {
+      green = document.documentElement.getAttribute('data-theme') === 'green' ? 1 : 0;
+      theme = themeIndex();
+      requestAnimationFrame(loop);
+    }
   });
 })();

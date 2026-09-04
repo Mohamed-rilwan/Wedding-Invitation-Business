@@ -5,7 +5,9 @@
 (function () {
   'use strict';
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const WEDDING = new Date('2026-12-06T11:00:00+05:30');
+  // Per-couple details live in window.WEDDING_CONFIG (set inline in each template's HTML).
+  const CFG = window.WEDDING_CONFIG || {};
+  const WEDDING = new Date(CFG.dateISO || '2026-12-06T11:00:00+05:30');
 
   /* ---------- Preloader ---------- */
   window.addEventListener('load', () => {
@@ -84,20 +86,20 @@
     calBtn.addEventListener('click', (e) => {
       e.preventDefault();
       const dt = (d) => d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-      const end = new Date(WEDDING.getTime() + 60 * 60 * 1000);
+      const end = new Date(WEDDING.getTime() + (CFG.durationMinutes || 60) * 60 * 1000);
       const ics = [
-        'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Rilwan-Kashifa//Nikkah//EN',
-        'BEGIN:VEVENT', 'UID:rilwan-kashifa-nikkah@2026',
+        'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//' + (CFG.icsProdId || 'Wedding') + '//Nikkah//EN',
+        'BEGIN:VEVENT', 'UID:' + (CFG.icsUid || 'wedding-nikkah') + '@' + WEDDING.getFullYear(),
         'DTSTAMP:' + dt(new Date()),
         'DTSTART:' + dt(WEDDING), 'DTEND:' + dt(end),
-        'SUMMARY:Nikkah — Rilwan & Kashifa',
-        'DESCRIPTION:With the blessings of Allah\\, join us for the Nikkah followed by lunch.',
-        'LOCATION:Rani Mahal\\, Blue Lagoon Wedding Complex\\, 5/72 Raja Nagar\\, Neelankarai\\, Chennai 600115',
+        'SUMMARY:' + (CFG.summary || 'Nikkah'),
+        'DESCRIPTION:' + (CFG.description || 'With the blessings of Allah\\, join us to celebrate.'),
+        'LOCATION:' + (CFG.location || ''),
         'END:VEVENT', 'END:VCALENDAR',
       ].join('\r\n');
       const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
       const a = document.createElement('a');
-      a.href = url; a.download = 'Rilwan-Kashifa-Nikkah.ics';
+      a.href = url; a.download = (CFG.icsFilename || 'Wedding-Nikkah') + '.ics';
       a.click(); URL.revokeObjectURL(url);
     });
   }
@@ -188,7 +190,7 @@
 
   if (ambience && muteBtn) {
     // visitors who muted before keep it muted
-    const wanted = localStorage.getItem('rk-audio') !== 'off';
+    const wanted = localStorage.getItem('wedding-audio') !== 'off';
     const GESTURES = ['pointerdown', 'touchend', 'keydown', 'wheel', 'scroll'];
 
     if (wanted) {
@@ -207,10 +209,10 @@
 
     muteBtn.addEventListener('click', () => {
       if (ambience.paused) {
-        localStorage.setItem('rk-audio', 'on');
+        localStorage.setItem('wedding-audio', 'on');
         startAmbience().catch(() => {});
       } else {
-        localStorage.setItem('rk-audio', 'off');
+        localStorage.setItem('wedding-audio', 'off');
         stopAmbience();
       }
     });
@@ -222,7 +224,7 @@
   if (mapCard && mapWrap) {
     mapCard.addEventListener('click', () => {
       const frame = document.createElement('iframe');
-      frame.title = 'Map to Rani Mahal, Blue Lagoon Wedding Complex, Neelankarai, Chennai';
+      frame.title = mapCard.getAttribute('aria-label') || CFG.mapLabel || 'Live map to the venue';
       frame.loading = 'lazy';
       frame.referrerPolicy = 'no-referrer-when-downgrade';
       frame.src = mapWrap.dataset.src;
@@ -231,7 +233,7 @@
     }, { once: true });
   }
 
-  /* ---------- Theme switch (blue / green) ---------- */
+  /* ---------- Theme switch (only present on templates that offer blue / green) ---------- */
   const themeBtn = document.getElementById('themeSwitch');
   const themeLabel = document.getElementById('themeLabel');
   const root = document.documentElement;
@@ -245,12 +247,12 @@
     if (meta) meta.setAttribute('content', green ? '#08251b' : '#012540');
     window.dispatchEvent(new Event('themechange'));
   }
-  applyTheme(localStorage.getItem('rk-theme') || 'blue');
   if (themeBtn) {
+    applyTheme(localStorage.getItem('wedding-theme') || 'blue');
     themeBtn.addEventListener('click', () => {
       const next = root.getAttribute('data-theme') === 'green' ? 'blue' : 'green';
       applyTheme(next);
-      localStorage.setItem('rk-theme', next);
+      localStorage.setItem('wedding-theme', next);
     });
   }
 })();

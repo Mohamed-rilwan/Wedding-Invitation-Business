@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose Your Wedding Invitation Style · Digital Nikkah Templates</title>
+  <meta name="description" content="Preview our digital wedding invitation styles — Royal Blue, Emerald &amp; Gold, Rose Gold Blush, and Midnight Plum — and pick the one you love." />
+  <meta name="robots" content="noindex" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Marcellus&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0b0d12; --card:#12151c; --ink:#f4ecd8; --dim:#a8a6a0;
+      --gold:#d8b25a; --gold-soft:#e7cd93;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:radial-gradient(120% 100% at 50% 0%,#161a24,var(--bg));
+      color:var(--ink); font-family:"Cormorant Garamond",serif; min-height:100vh;
+      padding:clamp(2rem,6vw,5rem) 1.25rem;
+    }
+    header{text-align:center;max-width:720px;margin:0 auto clamp(2.5rem,6vw,4rem)}
+    .kicker{font-family:"Marcellus",serif;letter-spacing:.35em;text-transform:uppercase;
+      font-size:.72rem;color:var(--gold)}
+    h1{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(2rem,5vw,3.2rem);
+      margin:.6rem 0 .8rem;line-height:1.15}
+    header p{font-size:1.15rem;color:var(--dim)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:clamp(1.2rem,3vw,2rem);max-width:1200px;margin:0 auto}
+    .card{background:var(--card);border:1px solid rgba(216,178,90,.2);border-radius:18px;
+      overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;
+      transition:transform .4s ease,border-color .4s ease}
+    .card:hover{transform:translateY(-6px);border-color:rgba(216,178,90,.6)}
+    .swatch{height:120px;position:relative}
+    .swatch--blue{background:linear-gradient(135deg,#012540,#0a5c86)}
+    .swatch--green{background:linear-gradient(135deg,#08251b,#12523c)}
+    .swatch--rosegold{background:linear-gradient(135deg,#3a1c22,#7a3a45)}
+    .swatch--midnight{background:linear-gradient(135deg,#20132f,#452a66)}
+    .swatch::after{content:"✦";position:absolute;inset:0;display:grid;place-items:center;
+      color:var(--gold-soft);font-size:1.6rem;opacity:.85}
+    .body{padding:1.2rem 1.3rem 1.5rem}
+    .name{font-family:"Playfair Display",serif;font-weight:600;font-size:1.4rem}
+    .desc{color:var(--dim);font-size:1rem;margin-top:.35rem}
+    .cta{display:inline-block;margin-top:1rem;font-family:"Marcellus",serif;letter-spacing:.16em;
+      text-transform:uppercase;font-size:.7rem;color:var(--gold)}
+    footer{text-align:center;margin-top:clamp(3rem,6vw,5rem);color:var(--dim);font-size:.95rem}
+    footer a{color:var(--gold-soft)}
+  </style>
+</head>
+<body>
+  <header>
+    <span class="kicker">Digital Nikkah Invitations</span>
+    <h1>Choose Your Invitation Style</h1>
+    <p>Each style is a fully working preview — scroll through it, add it to your calendar,
+       explore the venue map, and see how your names will look. Pick the one that feels
+       like you, and we'll personalise it with your names, dates, and photos.</p>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="royal-blue/index.html">
+      <div class="swatch swatch--blue"></div>
+      <div class="body">
+        <p class="name">Royal Blue</p>
+        <p class="desc">Deep blue &amp; gold, Islamic-luxe, with a live blue ⇄ green colour switch.</p>
+        <span class="cta">Preview this style →</span>
+      </div>
+    </a>
+
+    <a class="card" href="emerald-gold/index.html">
+      <div class="swatch swatch--green"></div>
+      <div class="body">
+        <p class="name">Emerald &amp; Gold</p>
+        <p class="desc">Rich emerald green with warm gold accents — classic and elegant.</p>
+        <span class="cta">Preview this style →</span>
+      </div>
+    </a>
+
+    <a class="card" href="rose-gold/index.html">
+      <div class="swatch swatch--rosegold"></div>
+      <div class="body">
+        <p class="name">Rose Gold Blush</p>
+        <p class="desc">Soft blush pink with rose gold accents — romantic and modern.</p>
+        <span class="cta">Preview this style →</span>
+      </div>
+    </a>
+
+    <a class="card" href="midnight-plum/index.html">
+      <div class="swatch swatch--midnight"></div>
+      <div class="body">
+        <p class="name">Midnight Plum</p>
+        <p class="desc">Deep plum &amp; gold — dramatic, moody, and unforgettable.</p>
+        <span class="cta">Preview this style →</span>
+      </div>
+    </a>
+  </div>
+
+  <footer>
+    <p>Every style includes a countdown timer, add-to-calendar, live venue map, ambient music
+       toggle, and gentle scroll animations. <a href="../index.html">See a real invitation example →</a></p>
+  </footer>
+</body>
+</html>

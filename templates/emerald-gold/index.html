@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="green">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#012540" />
-  <title>Rilwan &amp; Kashifa · Nikkah Invitation · 6 Dec 2026</title>
-  <meta name="description" content="With the blessings of Allah, we invite you to celebrate the Nikkah of S. Mohamed Rilwan &amp; Kashifa Teheseen. 6th December 2026, Chennai." />
+  <meta name="theme-color" content="#08251b" />
+  <title>Emerald &amp; Gold · Nikkah Invitation Template</title>
+  <meta name="description" content="A demo Islamic-luxe digital wedding invitation template in emerald green &amp; gold." />
+  <meta name="robots" content="noindex" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Tangerine:wght@400;700&family=Noto+Sans+Tamil:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=11" />
+  <link rel="stylesheet" href="../../css/styles.css?v=11" />
+  <style>
+    .demo-badge{position:fixed;top:0;left:0;right:0;z-index:70;text-align:center;
+      font-family:"Marcellus",serif;letter-spacing:.12em;font-size:.72rem;
+      padding:.55rem 1rem;background:rgba(0,10,20,.82);color:#e7cd93;
+      border-bottom:1px solid rgba(216,178,90,.35)}
+    .demo-badge a{color:#f4ecd8;text-decoration:underline}
+  </style>
 </head>
 <body>
+  <div class="demo-badge">TEMPLATE PREVIEW — Emerald &amp; Gold · <a href="../index.html">← Back to all styles</a></div>
 
-  <!-- ============ PRELOADER ============ -->
   <div class="preloader" id="preloader">
     <div class="preloader__star">
       <svg viewBox="0 0 100 100" aria-hidden="true">
@@ -31,17 +39,11 @@
     <p class="preloader__sub">In the name of Allah</p>
   </div>
 
-  <!-- ============ WEBGL BACKGROUND ============ -->
   <canvas id="gl" class="gl-canvas" aria-hidden="true"></canvas>
   <div class="grain" aria-hidden="true"></div>
-
-  <!-- ============ FLOATING PETALS ============ -->
   <div class="petals" id="petals" aria-hidden="true"></div>
-
-  <!-- ============ PROGRESS BAR ============ -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <!-- ============ NAV DOTS ============ -->
   <nav class="dotnav" id="dotnav" aria-label="Section navigation">
     <a href="#hero"   data-label="Welcome"><span></span></a>
     <a href="#invite" data-label="Invitation"><span></span></a>
@@ -52,8 +54,6 @@
   </nav>
 
   <main>
-
-    <!-- ============ HERO ============ -->
     <section class="section hero" id="hero">
       <div class="frame" aria-hidden="true">
         <span class="frame__corner tl"></span>
@@ -73,17 +73,17 @@
         </div>
 
         <h1 class="couple-names" data-reveal>
-          <span class="cn cn--groom">Rilwan</span>
+          <span class="cn cn--groom">Imran</span>
           <span class="cn cn--amp">&amp;</span>
-          <span class="cn cn--bride">Kashifa</span>
+          <span class="cn cn--bride">Sana</span>
         </h1>
 
         <p class="hero__tag" data-reveal>Two hearts, one prayer, forever <em>bismillah</em></p>
 
         <div class="hero__date" data-reveal>
-          <span>Sunday</span>
-          <span class="hero__date-num">06 · 12 · 2026</span>
-          <span>Chennai</span>
+          <span>Friday</span>
+          <span class="hero__date-num">20 · 02 · 2026</span>
+          <span>Your City</span>
         </div>
       </div>
 
@@ -92,17 +92,12 @@
       </a>
     </section>
 
-    <!-- ============ INVITATION / DUA ============ -->
     <section class="section invite" id="invite">
       <div class="container narrow center">
         <p class="bismillah-ar" lang="ar" dir="rtl" data-reveal>بِسْمِ اللَّٰهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
         <p class="bismillah-tr" data-reveal>In the name of Allah, the Most Gracious, the Most Merciful</p>
-
         <div class="divider" data-reveal aria-hidden="true"><span></span><i></i><span></span></div>
-
-        <p class="lead" data-reveal>
-          “What began as a prayer became our greatest blessing.”
-        </p>
+        <p class="lead" data-reveal>“What began as a prayer became our greatest blessing.”</p>
         <p class="prose" data-reveal>
           Your friendship and love have been a cherished part of their journey, and we
           warmly invite you to celebrate their <strong>Nikkah</strong> with us, a union
@@ -113,7 +108,6 @@
       </div>
     </section>
 
-    <!-- ============ THE COUPLE ============ -->
     <section class="section couple" id="couple">
       <div class="container">
         <header class="sec-head center" data-reveal>
@@ -123,45 +117,31 @@
         </header>
 
         <div class="couple-grid">
-          <!-- GROOM -->
           <article class="person card" data-reveal data-tilt>
             <div class="card__glow" aria-hidden="true"></div>
             <p class="person__role">The Groom</p>
-            <h3 class="person__name">S. Mohamed Rilwan</h3>
+            <h3 class="person__name">Imran Sheikh</h3>
             <p class="person__lineage">Son of</p>
-            <p class="person__parents"> M.S. Shaik Dawood<br>&amp;  M.M. Salima Salamath</p>
-            <p class="person__lineage">Grandson of</p>
-            <p class="person__grands">
-              Late Haji M.I. Sadakathullah &amp; Late Hajiani S.M. Haleema Beevi  <em>(Paternal)</em><br>
-              Late Haji M.A. Mohamed Gani &amp; Hajiani M.A. Jailani Beevi  <em>(Maternal)</em>
-            </p>
+            <p class="person__parents">Groom's Father Name<br>&amp; Groom's Mother Name</p>
           </article>
 
-          <!-- KNOT -->
           <div class="couple-knot" data-reveal aria-hidden="true">
             <div class="couple-knot__ring"></div>
             <span class="couple-knot__amp">&amp;</span>
             <p class="couple-knot__word">Nikkah</p>
           </div>
 
-          <!-- BRIDE -->
           <article class="person card" data-reveal data-tilt>
             <div class="card__glow" aria-hidden="true"></div>
             <p class="person__role">The Bride</p>
-            <h3 class="person__name">Kashifa Teheseen</h3>
+            <h3 class="person__name">Sana Fatima</h3>
             <p class="person__lineage">Daughter of</p>
-            <p class="person__parents">A. Shahul Hameed<br>&amp; S. Ameen Farhath Mubeen</p>
-            <p class="person__lineage">Granddaughter of</p>
-            <p class="person__grands">
-              Late K.S. Abdul Rahman &amp; A. Ayisha Gani <em>(Paternal)</em><br>
-              M. Mohammed Hanif &amp; M. Julekha Begum <em>(Maternal)</em>
-            </p>
+            <p class="person__parents">Bride's Father Name<br>&amp; Bride's Mother Name</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ EVENT / COUNTDOWN ============ -->
     <section class="section event" id="event">
       <div class="container center">
         <header class="sec-head center" data-reveal>
@@ -175,11 +155,11 @@
             <div class="event-item">
               <span class="event-item__ico">✦</span>
               <span class="event-item__k">Day</span>
-              <span class="event-item__v">Sunday</span>
+              <span class="event-item__v">Friday</span>
             </div>
             <div class="event-item event-item--big">
-              <span class="event-item__k">December</span>
-              <span class="event-item__date">06</span>
+              <span class="event-item__k">February</span>
+              <span class="event-item__date">20</span>
               <span class="event-item__v">2026</span>
             </div>
             <div class="event-item">
@@ -188,8 +168,7 @@
               <span class="event-item__v">11:00<small class="ampm">AM</small><br>–&thinsp;12:00<small class="ampm">PM</small></span>
             </div>
           </div>
-          <p class="event-card__hijri" lang="ar" dir="rtl">١٤٤٨ · جمادى الآخرة ٢٦</p>
-          <p class="event-card__hijri-tr">1448 AH · Jamadul Aakhir 26 &nbsp;·&nbsp; Nikkah followed by Lunch</p>
+          <p class="event-card__hijri-tr">Nikkah followed by Lunch</p>
         </div>
 
         <div class="countdown" id="countdown" data-reveal aria-live="polite">
@@ -203,7 +182,6 @@
       </div>
     </section>
 
-    <!-- ============ VENUE + DIRECTIONS ============ -->
     <section class="section venue" id="venue">
       <div class="container">
         <header class="sec-head center" data-reveal>
@@ -214,19 +192,19 @@
 
         <div class="venue-grid">
           <div class="venue-info" data-reveal>
-            <h3 class="venue-info__name">Rani Mahal</h3>
-            <p class="venue-info__hall">Blue Lagoon Wedding Complex</p>
+            <h3 class="venue-info__name">Emerald Gardens</h3>
+            <p class="venue-info__hall">Banquet Hall Name</p>
             <address class="venue-info__addr">
-              5/72, Raja Nagar, Neelankarai (E.C.R),<br>
-              Chennai, Tamil Nadu - 600115
+              Street Address, Area,<br>
+              City, State - 000000
             </address>
             <div class="venue-actions">
               <a class="btn btn--gold" target="_blank" rel="noopener"
-                 href="https://www.google.com/maps/search/?api=1&query=Blue+Lagoon+Wedding+Complex+Neelankarai+Chennai+600115">
+                 href="https://www.google.com/maps/search/?api=1&query=Your+Venue+Name">
                  ➤ Get Directions
               </a>
               <a class="btn btn--ghost" target="_blank" rel="noopener"
-                 href="https://www.google.com/maps/dir/?api=1&destination=Blue+Lagoon+Wedding+Complex+Neelankarai+Chennai+600115">
+                 href="https://www.google.com/maps/dir/?api=1&destination=Your+Venue+Name">
                  Navigate (Live)
               </a>
             </div>
@@ -234,24 +212,20 @@
           </div>
 
           <div class="venue-map" data-reveal id="venueMap"
-               data-src="https://maps.google.com/maps?q=Blue%20Lagoon%20Wedding%20Complex%20Neelankarai%20Chennai%20600115&t=&z=15&ie=UTF8&iwloc=&output=embed">
+               data-src="https://maps.google.com/maps?q=Your+Venue+Name&t=&z=15&ie=UTF8&iwloc=&output=embed">
             <button class="mapcard" id="mapCard" type="button"
-                    aria-label="Show the live map to Rani Mahal, Neelankarai">
+                    aria-label="Show the live map to Emerald Gardens">
               <svg class="mapcard__art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <!-- Bay of Bengal -->
                 <path class="mapcard__sea" d="M330 0c-8 60-14 120-6 180s18 90 24 120h52V0z"/>
                 <g class="mapcard__waves">
                   <path d="M336 60h44M332 104h48M334 150h46M338 196h42M344 242h36"/>
                 </g>
-                <!-- coast + side streets -->
                 <path class="mapcard__coast" d="M330 0c-8 60-14 120-6 180s18 90 24 120"/>
                 <g class="mapcard__streets">
                   <path d="M0 74h250M0 148h236M0 222h248M84 0v300M170 0v300"/>
                 </g>
-                <!-- East Coast Road -->
                 <path class="mapcard__ecr" d="M262 -10c-6 70-10 140-4 210 3 40 8 70 12 110"/>
                 <path class="mapcard__route" d="M262 -10c-6 70-10 140-4 210 3 40 8 70 12 110"/>
-                <!-- venue -->
                 <g class="mapcard__pin" transform="translate(258 150)">
                   <circle class="mapcard__ping" r="10"/>
                   <circle class="mapcard__ping mapcard__ping--2" r="10"/>
@@ -259,9 +233,8 @@
                   <circle class="mapcard__dot" cy="-12" r="4.6"/>
                 </g>
               </svg>
-
               <span class="mapcard__label">
-                <span class="mapcard__name">Rani Mahal</span>
+                <span class="mapcard__name">Emerald Gardens</span>
                 <span class="mapcard__hint">Tap for the live map</span>
               </span>
             </button>
@@ -271,7 +244,6 @@
       </div>
     </section>
 
-    <!-- ============ HOSTS / WELCOME ============ -->
     <section class="section hosts" id="hosts">
       <div class="container center">
         <header class="sec-head center" data-reveal>
@@ -287,65 +259,54 @@
 
         <p class="welcome-and" data-reveal>All our Family, Friends and Relatives</p>
 
-
         <div class="signoff" data-reveal>
           <div class="signoff__col">
             <p class="signoff__lbl">Yours lovingly</p>
-            <p class="signoff__names">M.A.M. Syed Musthafa<br>&amp; M.A. Syed Rabiathul Basaria</p>
-            <p class="signoff__place">Bangalore</p>
+            <p class="signoff__names">Groom's Family Names</p>
+            <p class="signoff__place">City</p>
           </div>
           <div class="signoff__col">
             <p class="signoff__lbl">On behalf of the bride</p>
-            <p class="signoff__names">A. Shahul Hameed<br>&amp; S. Ameen Farhath Mubeen</p>
-            <p class="signoff__place">Chennai</p>
+            <p class="signoff__names">Bride's Family Names</p>
+            <p class="signoff__place">City</p>
           </div>
         </div>
 
         <div class="contact" data-reveal>
-          <a href="tel:+919886598461" class="contact__pill">📞 +91 98865 98461</a>
-          <a href="tel:+919113629855" class="contact__pill">📞 +91 91136 29855</a>
+          <a href="tel:+910000000000" class="contact__pill">📞 +91 00000 00000</a>
+          <a href="tel:+910000000000" class="contact__pill">📞 +91 00000 00000</a>
         </div>
       </div>
     </section>
 
-    <!-- ============ FOOTER ============ -->
     <footer class="footer">
       <p class="footer__dua" lang="ar" dir="rtl">بَارَكَ اللَّٰهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
       <p class="footer__dua-tr">“May Allah bless you, and shower His blessings upon you, and join you together in goodness.”</p>
-      <p class="footer__mark">Rilwan &amp; Kashifa · 06 · 12 · 2026</p>
+      <p class="footer__mark">Imran &amp; Sana · 20 · 02 · 2026</p>
     </footer>
-
   </main>
 
-  <audio id="ambience" src="Background.mp3" loop preload="auto" playsinline></audio>
+  <audio id="ambience" src="../../Background.mp3" loop preload="auto" playsinline></audio>
 
   <button class="mute-toggle" id="muteToggle" aria-pressed="false" title="Toggle ambience">
     <span class="mute-toggle__on">♪</span>
     <span class="mute-toggle__off">✕</span>
   </button>
 
-  <button class="theme-switch" id="themeSwitch" role="switch" aria-checked="false"
-          aria-label="Switch colour theme between blue and green" title="Switch blue / green">
-    <span class="theme-switch__track" aria-hidden="true">
-      <span class="theme-switch__thumb">✦</span>
-    </span>
-    <span class="theme-switch__label" id="themeLabel">Blue</span>
-  </button>
-
   <script>
     window.WEDDING_CONFIG = {
-      dateISO: '2026-12-06T11:00:00+05:30',
+      dateISO: '2026-02-20T11:00:00+05:30',
       durationMinutes: 60,
-      icsProdId: 'Rilwan-Kashifa',
-      icsUid: 'rilwan-kashifa-nikkah',
-      icsFilename: 'Rilwan-Kashifa-Nikkah',
-      summary: 'Nikkah — Rilwan & Kashifa',
+      icsProdId: 'Imran-Sana',
+      icsUid: 'imran-sana-nikkah',
+      icsFilename: 'Imran-Sana-Nikkah',
+      summary: 'Nikkah — Imran & Sana',
       description: 'With the blessings of Allah\\, join us for the Nikkah followed by lunch.',
-      location: 'Rani Mahal\\, Blue Lagoon Wedding Complex\\, 5/72 Raja Nagar\\, Neelankarai\\, Chennai 600115',
-      mapLabel: 'Map to Rani Mahal, Blue Lagoon Wedding Complex, Neelankarai, Chennai',
+      location: 'Emerald Gardens\\, Your City',
+      mapLabel: 'Map to Emerald Gardens',
     };
   </script>
-  <script src="js/shader.js?v=10"></script>
-  <script src="js/main.js?v=12"></script>
+  <script src="../../js/shader.js?v=10"></script>
+  <script src="../../js/main.js?v=12"></script>
 </body>
 </html>
