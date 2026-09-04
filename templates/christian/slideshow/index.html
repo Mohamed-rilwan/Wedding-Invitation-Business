@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4efe2" />
+  <title>Sage Slideshow · Holy Matrimony Invitation Template</title>
+  <meta name="description" content="A demo Christian wedding invitation template in a full-screen snap-scroll slideshow format — sage &amp; ivory." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@600;700&family=Marcellus&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../_shared/slideshow/css/styles.css?v=1" />
+  <style>
+    .demo-badge{position:fixed;top:0;left:0;right:0;z-index:70;text-align:center;
+      font-family:"Marcellus",serif;letter-spacing:.12em;font-size:.72rem;
+      padding:.55rem 1rem;background:rgba(43,42,34,.9);color:#e7ddb8;
+      border-bottom:1px solid rgba(138,114,51,.35)}
+    .demo-badge a{color:#faf5ec;text-decoration:underline}
+  </style>
+</head>
+<body>
+  <div class="demo-badge">TEMPLATE PREVIEW — Sage Slideshow (Christian) · <a href="../../index.html">← Back to all styles</a></div>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+  <nav class="slide-nav" id="slideNav" aria-label="Slide navigation"></nav>
+
+  <div class="slideshow" id="slideshow">
+
+    <section class="slide" id="s1" data-label="Welcome">
+      <div class="slide__inner">
+        <p class="slide-emblem">✝</p>
+        <span class="slide-kicker">Together with God's Blessing</span>
+        <h1 class="slide-names">Daniel<em>&amp;</em>Olivia</h1>
+        <p class="slide-tag">Two hearts, one faith, <em>forever bound in love</em></p>
+        <div class="slide-date">
+          <span>Sunday</span>
+          <b>06 · 12 · 2026</b>
+          <span>Your City</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s2" data-label="Scripture">
+      <div class="slide__inner">
+        <p class="pull-quote">
+          “Many waters cannot quench love; rivers cannot sweep it away.”
+          <small>Song of Solomon 8:7</small>
+        </p>
+        <p class="slide-prose">With hearts full of gratitude, we joyfully invite you to our Holy Matrimony.</p>
+      </div>
+    </section>
+
+    <section class="slide" id="s3" data-label="Couple">
+      <div class="slide__inner">
+        <span class="slide-kicker">United in Christ</span>
+        <div class="split" style="margin-top:2rem">
+          <div class="split__person">
+            <p class="split__role">The Groom</p>
+            <p class="split__name">Daniel Roberts</p>
+            <p class="split__meta">Son of<br>Groom's Parents' Names</p>
+          </div>
+          <div class="split__mid">⚭</div>
+          <div class="split__person">
+            <p class="split__role">The Bride</p>
+            <p class="split__name">Olivia Bennett</p>
+            <p class="split__meta">Daughter of<br>Bride's Parents' Names</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s4" data-label="Ceremony">
+      <div class="slide__inner">
+        <span class="slide-kicker">Save the Date</span>
+        <h2 class="slide-title" style="font-size:clamp(1.8rem,4.4vw,2.6rem)">The Wedding Ceremony</h2>
+        <div class="details-grid">
+          <div class="details-item"><span class="details-item__k">Day</span><span class="details-item__v">Sunday</span></div>
+          <div class="details-item"><span class="details-item__k">Date</span><span class="details-item__v">06 Dec 2026</span></div>
+          <div class="details-item"><span class="details-item__k">Ceremony</span><span class="details-item__v">3:00 PM</span></div>
+        </div>
+        <div class="countdown-inline" id="countdown" aria-live="polite">
+          <div class="ci"><span class="ci__num" id="cdDays">00</span><span class="ci__lbl">Days</span></div>
+          <div class="ci"><span class="ci__num" id="cdHours">00</span><span class="ci__lbl">Hrs</span></div>
+          <div class="ci"><span class="ci__num" id="cdMins">00</span><span class="ci__lbl">Min</span></div>
+          <div class="ci"><span class="ci__num" id="cdSecs">00</span><span class="ci__lbl">Sec</span></div>
+        </div>
+        <a class="btn btn--ghost" id="calBtn" href="#">＋ Add to Calendar</a>
+      </div>
+    </section>
+
+    <section class="slide" id="s5" data-label="Join Us">
+      <div class="slide__inner">
+        <span class="slide-kicker">Deo Volente</span>
+        <h2 class="slide-title" style="font-size:clamp(1.8rem,4.4vw,2.6rem)">We'd Love to Have You There</h2>
+        <p class="slide-prose">St. Mary's Church, Your City · Reception to follow</p>
+        <div class="rsvp-actions">
+          <a class="btn btn--gold" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=Your+Venue+Name">➤ Get Directions</a>
+        </div>
+        <div class="rsvp-contact">
+          <a href="tel:+910000000000">📞 +91 00000 00000</a>
+          <a href="tel:+910000000000">📞 +91 00000 00000</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    window.WEDDING_CONFIG = {
+      dateISO: '2026-12-06T15:00:00+05:30',
+      durationMinutes: 90,
+      icsProdId: 'Daniel-Olivia',
+      icsUid: 'daniel-olivia-wedding',
+      icsFilename: 'Daniel-Olivia-Wedding',
+      summary: 'Wedding Ceremony — Daniel & Olivia',
+      description: 'With God\'s blessing\\, join us for the wedding ceremony.',
+      location: 'St. Mary\'s Church\\, Your City',
+    };
+  </script>
+  <script src="../../_shared/slideshow/js/main.js?v=1"></script>
+</body>
+</html>
