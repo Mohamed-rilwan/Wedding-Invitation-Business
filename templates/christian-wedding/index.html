@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f1e6" />
+  <title>Christian Traditional · Holy Matrimony Invitation Template</title>
+  <meta name="description" content="A demo Christian wedding invitation template in ivory &amp; gold, with swinging chapel bells, a rose-and-lace garland, and falling petals." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@500;600;700&family=Great+Vibes&family=Marcellus&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css?v=1" />
+  <style>
+    .demo-badge{position:fixed;top:44px;left:0;right:0;z-index:70;text-align:center;
+      font-family:"Marcellus",serif;letter-spacing:.12em;font-size:.72rem;
+      padding:.55rem 1rem;background:rgba(44,36,32,.85);color:#f0e1b8;
+      border-bottom:1px solid rgba(184,147,62,.35)}
+    .demo-badge a{color:#faf5ec;text-decoration:underline}
+    @media (max-width:640px){.demo-badge{top:32px}}
+  </style>
+</head>
+<body>
+  <div class="demo-badge">TEMPLATE PREVIEW — Christian Traditional · <a href="../index.html">← Back to all styles</a></div>
+
+  <div class="bg-glow" aria-hidden="true"></div>
+  <svg class="rosette" viewBox="0 0 200 200" aria-hidden="true">
+    <g fill="none" stroke="#b8933e" stroke-width="0.4">
+      <circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="70"/>
+      <circle cx="100" cy="100" r="50"/>
+      <path d="M100 10v180M10 100h180M32 32l136 136M168 32L32 168"/>
+    </g>
+  </svg>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="garland" aria-hidden="true"></div>
+
+  <!-- ============ CHAPEL BELLS (animated, flank the page) ============ -->
+  <svg class="bell bell--left" viewBox="0 0 100 320" aria-hidden="true">
+    <line x1="50" y1="0" x2="50" y2="70" stroke="#8f7128" stroke-width="2"/>
+    <g class="bell__pendulum">
+      <path d="M30 70 C30 100 20 150 20 190 C20 215 80 215 80 190 C80 150 70 100 70 70 Z" fill="#d9b76a"/>
+      <ellipse cx="50" cy="192" rx="34" ry="8" fill="#b8933e"/>
+      <circle cx="50" cy="215" r="7" fill="#8f7128"/>
+      <circle cx="50" cy="55" r="9" fill="#b8933e"/>
+    </g>
+  </svg>
+  <svg class="bell bell--right" viewBox="0 0 100 320" aria-hidden="true">
+    <line x1="50" y1="0" x2="50" y2="70" stroke="#8f7128" stroke-width="2"/>
+    <g class="bell__pendulum">
+      <path d="M30 70 C30 100 20 150 20 190 C20 215 80 215 80 190 C80 150 70 100 70 70 Z" fill="#d9b76a"/>
+      <ellipse cx="50" cy="192" rx="34" ry="8" fill="#b8933e"/>
+      <circle cx="50" cy="215" r="7" fill="#8f7128"/>
+      <circle cx="50" cy="55" r="9" fill="#b8933e"/>
+    </g>
+  </svg>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__cross">✝</div>
+    <p class="preloader__text">Holy Matrimony</p>
+    <p class="preloader__sub">By God's Grace</p>
+  </div>
+
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <nav class="dotnav" id="dotnav" aria-label="Section navigation">
+    <a href="#hero"     data-label="Welcome"><span></span></a>
+    <a href="#blessing" data-label="Scripture"><span></span></a>
+    <a href="#couple"   data-label="The Couple"><span></span></a>
+    <a href="#ceremony" data-label="Ceremony"><span></span></a>
+    <a href="#celebrations" data-label="Celebrations"><span></span></a>
+    <a href="#venue"    data-label="Venue"><span></span></a>
+    <a href="#hosts"    data-label="With Love"><span></span></a>
+  </nav>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="section hero" id="hero">
+      <div class="hero__inner reveal-group">
+        <p class="cross-mark" data-reveal>✝</p>
+        <p class="eyebrow" data-reveal>Together with God's Blessing · Wedding Invitation</p>
+
+        <div class="ornament" data-reveal aria-hidden="true">
+          <span class="line"></span>
+          <svg viewBox="0 0 24 24" class="ornament__rings"><circle cx="9" cy="14" r="6"/><circle cx="15" cy="14" r="6"/></svg>
+          <span class="line"></span>
+        </div>
+
+        <h1 class="couple-names" data-reveal>
+          <span class="cn cn--groom">Michael</span>
+          <span class="cn--amp">&amp;</span>
+          <span class="cn cn--bride">Grace</span>
+        </h1>
+
+        <p class="hero__tag" data-reveal>Two hearts, one faith, <em>forever bound in love</em></p>
+
+        <div class="hero__date" data-reveal>
+          <span>Sunday</span>
+          <span class="hero__date-num">06 · 12 · 2026</span>
+          <span>Your City</span>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#blessing" aria-label="Scroll down">
+        <span class="scroll-cue__line"></span>
+      </a>
+    </section>
+
+    <!-- ============ SCRIPTURE / BLESSING ============ -->
+    <section class="section" id="blessing">
+      <div class="container narrow center">
+        <span class="sec-head__kicker" data-reveal>With God's Grace · A Reading</span>
+        <p class="verse" data-reveal>
+          “Love is patient, love is kind. It does not envy, it does not boast, it is not proud.
+          It always protects, always trusts, always hopes, always perseveres. Love never fails.”
+        </p>
+        <span class="verse-cite" data-reveal>1 Corinthians 13:4, 7–8</span>
+
+        <div class="divider" data-reveal aria-hidden="true"><span></span><i></i><span></span></div>
+
+        <p class="lead" data-reveal>“Two souls, sealed by faith, blessed by love.”</p>
+        <p class="prose" data-reveal>
+          With hearts full of gratitude and the blessing of our Lord, we joyfully invite you
+          to witness the <strong>Holy Matrimony</strong> of our beloved children, as they
+          exchange vows and begin their journey as one.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ THE COUPLE ============ -->
+    <section class="section" id="couple">
+      <div class="container">
+        <header class="sec-head center" data-reveal>
+          <span class="sec-head__kicker">United in Christ</span>
+          <h2 class="sec-head__title">The Wedding Couple</h2>
+          <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+        </header>
+
+        <div class="couple-grid">
+          <article class="person card" data-reveal data-tilt>
+            <div class="card__glow" aria-hidden="true"></div>
+            <p class="person__role">The Groom</p>
+            <h3 class="person__name">Michael Thomas</h3>
+            <p class="person__lineage">Son of</p>
+            <p class="person__parents">Groom's Father Name<br>&amp; Groom's Mother Name</p>
+          </article>
+
+          <div class="couple-knot" data-reveal aria-hidden="true">
+            <div class="couple-knot__ring"></div>
+            <span class="couple-knot__ico">⚭</span>
+            <p class="couple-knot__word">Vows</p>
+          </div>
+
+          <article class="person card" data-reveal data-tilt>
+            <div class="card__glow" aria-hidden="true"></div>
+            <p class="person__role">The Bride</p>
+            <h3 class="person__name">Grace Matthews</h3>
+            <p class="person__lineage">Daughter of</p>
+            <p class="person__parents">Bride's Father Name<br>&amp; Bride's Mother Name</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CEREMONY / COUNTDOWN ============ -->
+    <section class="section" id="ceremony">
+      <div class="container center">
+        <header class="sec-head center" data-reveal>
+          <span class="sec-head__kicker">Save the Date</span>
+          <h2 class="sec-head__title">The Wedding Ceremony</h2>
+          <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+        </header>
+
+        <div class="event-card" data-reveal>
+          <div class="event-card__row">
+            <div class="event-item">
+              <span class="event-item__ico">✦</span>
+              <span class="event-item__k">Day</span>
+              <span class="event-item__v">Sunday</span>
+            </div>
+            <div class="event-item event-item--big">
+              <span class="event-item__k">December</span>
+              <span class="event-item__date">06</span>
+              <span class="event-item__v">2026</span>
+            </div>
+            <div class="event-item">
+              <span class="event-item__ico">✦</span>
+              <span class="event-item__k">Ceremony</span>
+              <span class="event-item__v">3:00<small class="ampm">PM</small></span>
+            </div>
+          </div>
+          <p class="event-card__note">Reception to follow · Kindly be seated by 2:45 PM</p>
+        </div>
+
+        <div class="countdown" id="countdown" data-reveal aria-live="polite">
+          <div class="cd"><span class="cd__num" id="cdDays">00</span><span class="cd__lbl">Days</span></div>
+          <div class="cd"><span class="cd__num" id="cdHours">00</span><span class="cd__lbl">Hours</span></div>
+          <div class="cd"><span class="cd__num" id="cdMins">00</span><span class="cd__lbl">Minutes</span></div>
+          <div class="cd"><span class="cd__num" id="cdSecs">00</span><span class="cd__lbl">Seconds</span></div>
+        </div>
+
+        <a class="btn btn--ghost" id="calBtn" href="#" data-reveal>＋ Add to Calendar</a>
+      </div>
+    </section>
+
+    <!-- ============ CELEBRATIONS TIMELINE ============ -->
+    <section class="section" id="celebrations">
+      <div class="container center">
+        <header class="sec-head center" data-reveal>
+          <span class="sec-head__kicker">Join Us For</span>
+          <h2 class="sec-head__title">The Celebrations</h2>
+          <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+        </header>
+
+        <div class="timeline" data-reveal>
+          <div class="tl-card">
+            <div class="tl-card__ico">🌸</div>
+            <p class="tl-card__name">Bridal Shower</p>
+            <p class="tl-card__date">04 Dec · 4:00 PM</p>
+            <p class="tl-card__venue">Family Residence</p>
+          </div>
+          <div class="tl-card">
+            <div class="tl-card__ico">🍽️</div>
+            <p class="tl-card__name">Rehearsal Dinner</p>
+            <p class="tl-card__date">05 Dec · 7:00 PM</p>
+            <p class="tl-card__venue">The Garden Room</p>
+          </div>
+          <div class="tl-card">
+            <div class="tl-card__ico">✝</div>
+            <p class="tl-card__name">Wedding Ceremony</p>
+            <p class="tl-card__date">06 Dec · 3:00 PM</p>
+            <p class="tl-card__venue">St. Mary's Church</p>
+          </div>
+          <div class="tl-card">
+            <div class="tl-card__ico">💍</div>
+            <p class="tl-card__name">Reception</p>
+            <p class="tl-card__date">06 Dec · 7:00 PM</p>
+            <p class="tl-card__venue">Grand Hall</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VENUE ============ -->
+    <section class="section" id="venue">
+      <div class="container">
+        <header class="sec-head center" data-reveal>
+          <span class="sec-head__kicker">Deo Volente</span>
+          <h2 class="sec-head__title">The Venue</h2>
+          <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+        </header>
+
+        <div class="venue-grid">
+          <div class="venue-info" data-reveal>
+            <h3 class="venue-info__name">St. Mary's Church</h3>
+            <p class="venue-info__hall">Reception at The Grand Hall</p>
+            <address class="venue-info__addr">
+              Street Address, Area,<br>
+              City, State - 000000
+            </address>
+            <div class="venue-actions">
+              <a class="btn btn--gold" target="_blank" rel="noopener"
+                 href="https://www.google.com/maps/search/?api=1&query=Your+Venue+Name">
+                 ➤ Get Directions
+              </a>
+              <a class="btn btn--ghost" target="_blank" rel="noopener"
+                 href="https://www.google.com/maps/dir/?api=1&destination=Your+Venue+Name">
+                 Navigate (Live)
+              </a>
+            </div>
+            <p class="venue-info__note">Ample parking available · Kindly arrive by 2:45 PM</p>
+          </div>
+
+          <div class="venue-map" data-reveal id="venueMap"
+               data-src="https://maps.google.com/maps?q=Your+Venue+Name&t=&z=15&ie=UTF8&iwloc=&output=embed">
+            <button class="mapcard" id="mapCard" type="button"
+                    aria-label="Show the live map to St. Mary's Church">
+              <svg class="mapcard__art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <path class="mapcard__sea" d="M330 0c-8 60-14 120-6 180s18 90 24 120h52V0z"/>
+                <g class="mapcard__streets">
+                  <path d="M0 74h250M0 148h236M0 222h248M84 0v300M170 0v300"/>
+                </g>
+                <path class="mapcard__route" d="M262 -10c-6 70-10 140-4 210 3 40 8 70 12 110"/>
+                <g class="mapcard__pin" transform="translate(258 150)">
+                  <circle class="mapcard__ping" r="10"/>
+                  <circle class="mapcard__ping mapcard__ping--2" r="10"/>
+                  <path class="mapcard__drop" d="M0-26c-8 0-14 6-14 14 0 10 14 26 14 26s14-16 14-26c0-8-6-14-14-14z"/>
+                  <circle class="mapcard__dot" cy="-12" r="4.6"/>
+                </g>
+              </svg>
+              <span class="mapcard__label">
+                <span class="mapcard__name">St. Mary's Church</span>
+                <span class="mapcard__hint">Tap for the live map</span>
+              </span>
+            </button>
+            <div class="venue-map__frame" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOSTS / WELCOME ============ -->
+    <section class="section" id="hosts">
+      <div class="container center">
+        <header class="sec-head center" data-reveal>
+          <span class="sec-head__kicker">With Grateful Hearts</span>
+          <h2 class="sec-head__title">Warmly Welcoming You</h2>
+          <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
+        </header>
+
+        <div class="request" data-reveal>
+          <p>We joyfully request the pleasure of your company to witness our vows,
+             share in our joy, and celebrate the beginning of our life together.</p>
+        </div>
+
+        <p class="welcome-and" data-reveal>All our Family, Friends and Loved Ones</p>
+
+        <div class="signoff" data-reveal>
+          <div class="signoff__col">
+            <p class="signoff__lbl">With love, the groom's family</p>
+            <p class="signoff__names">Groom's Family Names</p>
+            <p class="signoff__place">City</p>
+          </div>
+          <div class="signoff__col">
+            <p class="signoff__lbl">With love, the bride's family</p>
+            <p class="signoff__names">Bride's Family Names</p>
+            <p class="signoff__place">City</p>
+          </div>
+        </div>
+
+        <div class="contact" data-reveal>
+          <a href="tel:+910000000000" class="contact__pill">📞 +91 00000 00000</a>
+          <a href="tel:+910000000000" class="contact__pill">📞 +91 00000 00000</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <p class="footer__verse">“A cord of three strands is not quickly broken.”</p>
+      <p class="footer__verse-cite">Ecclesiastes 4:12</p>
+      <p class="footer__mark">Michael &amp; Grace · 06 · 12 · 2026</p>
+    </footer>
+  </main>
+
+  <audio id="ambience" src="../../Background.mp3" loop preload="auto" playsinline></audio>
+
+  <button class="mute-toggle" id="muteToggle" aria-pressed="false" title="Toggle ambience">
+    <span class="mute-toggle__on">♪</span>
+    <span class="mute-toggle__off">✕</span>
+  </button>
+
+  <script>
+    window.WEDDING_CONFIG = {
+      dateISO: '2026-12-06T15:00:00+05:30',
+      durationMinutes: 90,
+      icsProdId: 'Michael-Grace',
+      icsUid: 'michael-grace-wedding',
+      icsFilename: 'Michael-Grace-Wedding',
+      summary: 'Wedding Ceremony — Michael & Grace',
+      description: 'With God\'s blessing\\, join us for the wedding ceremony followed by the reception.',
+      location: 'St. Mary\'s Church\\, Your City',
+      mapLabel: 'Map to St. Mary\'s Church',
+    };
+  </script>
+  <script src="js/main.js?v=1"></script>
+</body>
+</html>

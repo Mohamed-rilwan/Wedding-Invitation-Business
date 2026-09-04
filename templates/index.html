@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Choose Your Wedding Invitation Style · Digital Nikkah Templates</title>
-  <meta name="description" content="Preview our digital wedding invitation styles — Royal Blue, Emerald &amp; Gold, Rose Gold Blush, and Midnight Plum — and pick the one you love." />
+  <title>Choose Your Wedding Invitation Style · Digital Wedding Templates</title>
+  <meta name="description" content="Preview our digital wedding invitation styles — Royal Blue, Emerald &amp; Gold, Rose Gold Blush, Midnight Plum, Hindu Traditional, and Christian Traditional — and pick the one you love." />
   <meta name="robots" content="noindex" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Marcellus&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet" />
   <style>
@@ -111,19 +111,48 @@
     footer{text-align:center;margin-top:clamp(3rem,7vw,5rem);color:var(--dim);font-size:.95rem}
     footer a{color:var(--gold-soft)}
 
+    /* ===================== CATEGORY TABS ===================== */
+    .cat-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;
+      margin:clamp(1.6rem,4vw,2.4rem) auto 0;max-width:640px}
+    .cat-tab{
+      display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;
+      font-family:"Marcellus",serif;letter-spacing:.14em;text-transform:uppercase;font-size:.74rem;
+      color:var(--dim);padding:.65rem 1.3rem;border-radius:999px;
+      border:1px solid rgba(216,178,90,.22);background:rgba(255,255,255,.03);
+      transition:.35s cubic-bezier(.19,1,.22,1);
+    }
+    .cat-tab__count{font-size:.66rem;opacity:.7}
+    .cat-tab:hover{color:var(--cream,#f4ecd8);border-color:rgba(216,178,90,.5)}
+    .cat-tab[aria-selected="true"]{
+      color:#0b0d12;background:linear-gradient(120deg,var(--gold-soft),var(--gold));
+      border-color:transparent;box-shadow:0 14px 30px -14px rgba(216,178,90,.7);
+    }
+    .cat-tab[disabled]{opacity:.45;cursor:not-allowed}
+    .cat-tab[disabled]:hover{color:var(--dim);border-color:rgba(216,178,90,.22)}
+
+    /* ===================== COMING SOON ===================== */
+    .cat-empty{display:none;max-width:520px;margin:clamp(3rem,7vw,4.5rem) auto 0;text-align:center}
+    .cat-empty.show{display:block}
+    .cat-empty__ico{font-size:2.4rem;color:var(--gold-soft);opacity:.85}
+    .cat-empty__title{font-family:"Playfair Display",serif;font-weight:700;
+      font-size:clamp(1.5rem,3.6vw,2rem);margin-top:.8rem}
+    .cat-empty__desc{color:var(--dim);font-size:1.05rem;margin-top:.6rem}
+
     @media (prefers-reduced-motion:reduce){
-      .car-card,.car-info__name,.car-info__desc,.car-cta,.car-dot{transition:none}
+      .car-card,.car-info__name,.car-info__desc,.car-cta,.car-dot,.cat-tab{transition:none}
     }
   </style>
 </head>
 <body>
   <header>
-    <span class="kicker">Digital Nikkah Invitations</span>
+    <span class="kicker">Digital Wedding Invitations</span>
     <h1>Choose Your Invitation Style</h1>
     <p>Every style is a fully working preview — spin through them, then tap through to
        explore the countdown, calendar, and venue map. We'll personalise the one you love
        with your names, dates, and photos.</p>
   </header>
+
+  <div class="cat-tabs" id="catTabs" role="tablist" aria-label="Wedding tradition"></div>
 
   <div class="carousel" id="carousel" tabindex="0" aria-roledescription="carousel" aria-label="Invitation styles">
     <button class="car-nav car-nav--prev" id="prevBtn" aria-label="Previous style">‹</button>
@@ -139,58 +168,122 @@
 
   <div class="car-dots" id="carDots"></div>
 
+  <div class="cat-empty" id="catEmpty">
+    <div class="cat-empty__ico">✦</div>
+    <p class="cat-empty__title">More styles coming soon</p>
+    <p class="cat-empty__desc">We're designing this collection next.
+       Check back shortly, or ask us and we'll personalise one for you early.</p>
+  </div>
+
   <footer>
     <p>Every style includes a countdown timer, add-to-calendar, live venue map, ambient music
        toggle, and gentle scroll animations. <a href="../index.html">See a real invitation example →</a></p>
   </footer>
 
   <script>
-    const STYLES = [
-      { key:'royal-blue',    name:'Royal Blue',       desc:"Deep blue & gold, Islamic-luxe, with a live blue ⇄ green colour switch.", glow:'15,127,184' },
-      { key:'emerald-gold',  name:'Emerald & Gold',    desc:"Rich emerald green with warm gold accents — classic and elegant.",        glow:'28,122,84'  },
-      { key:'rose-gold',     name:'Rose Gold Blush',   desc:"Soft blush pink with rose gold accents — romantic and modern.",           glow:'168,90,104' },
-      { key:'midnight-plum', name:'Midnight Plum',     desc:"Deep plum & gold — dramatic, moody, and unforgettable.",                  glow:'92,58,134'  },
+    const CATEGORIES = [
+      {
+        key: 'muslim', label: 'Muslim · Nikkah', icon: '☾',
+        styles: [
+          { key:'royal-blue',    name:'Royal Blue',       desc:"Deep blue & gold, Islamic-luxe, with a live blue ⇄ green colour switch.", glow:'15,127,184' },
+          { key:'emerald-gold',  name:'Emerald & Gold',    desc:"Rich emerald green with warm gold accents — classic and elegant.",        glow:'28,122,84'  },
+          { key:'rose-gold',     name:'Rose Gold Blush',   desc:"Soft blush pink with rose gold accents — romantic and modern.",           glow:'168,90,104' },
+          { key:'midnight-plum', name:'Midnight Plum',     desc:"Deep plum & gold — dramatic, moody, and unforgettable.",                  glow:'92,58,134'  },
+        ],
+      },
+      {
+        key: 'hindu', label: 'Hindu · Vivah', icon: 'ॐ',
+        styles: [
+          { key:'hindu-wedding', name:'Hindu Traditional', desc:"Maroon & gold with an animated banana-tree entrance and marigold petals.", glow:'212,175,55' },
+        ],
+      },
+      {
+        key: 'christian', label: 'Christian', icon: '✝',
+        styles: [
+          { key:'christian-wedding', name:'Christian Traditional', desc:"Ivory & gold with swinging chapel bells, a rose-and-lace garland, and falling petals.", glow:'184,147,62' },
+        ],
+      },
     ];
 
+    const tabsEl  = document.getElementById('catTabs');
+    const carousel = document.getElementById('carousel');
     const stage   = document.getElementById('stage');
     const dotsEl  = document.getElementById('carDots');
     const info    = document.getElementById('carInfo');
     const nameEl  = document.getElementById('carName');
     const descEl  = document.getElementById('carDesc');
     const ctaEl   = document.getElementById('carCta');
-    const carousel = document.getElementById('carousel');
-    const N = STYLES.length;
+    const emptyEl = document.getElementById('catEmpty');
+
+    let STYLES = [];
+    let N = 0;
     let active = 0;
+    let cards = [];
+    let dots = [];
 
-    STYLES.forEach((s, i) => {
-      const card = document.createElement('article');
-      card.className = 'car-card';
-      card.dataset.index = i;
-      card.setAttribute('role', 'option');
-      card.innerHTML = `
-        <div class="car-card__frame">
-          <iframe class="car-card__preview" src="${s.key}/index.html" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
-        </div>
-        <div class="car-card__sheen"></div>
-        <div class="car-card__badge"><span>${s.name}</span><span>View →</span></div>
-      `;
-      card.addEventListener('click', () => {
-        if (i === active) { window.location.href = `${s.key}/index.html`; }
-        else { goTo(i); }
-      });
-      stage.appendChild(card);
-
-      const dot = document.createElement('button');
-      dot.className = 'car-dot';
-      dot.setAttribute('aria-label', `Show ${s.name}`);
-      dot.addEventListener('click', () => goTo(i));
-      dotsEl.appendChild(dot);
+    CATEGORIES.forEach((cat) => {
+      const tab = document.createElement('button');
+      tab.className = 'cat-tab';
+      tab.setAttribute('role', 'tab');
+      tab.dataset.key = cat.key;
+      tab.innerHTML = `<span>${cat.icon}</span><span>${cat.label}</span>` +
+        (cat.styles.length ? `<span class="cat-tab__count">(${cat.styles.length})</span>` : `<span class="cat-tab__count">Soon</span>`);
+      tab.addEventListener('click', () => selectCategory(cat.key));
+      tabsEl.appendChild(tab);
     });
+    const tabs = [...tabsEl.querySelectorAll('.cat-tab')];
 
-    const cards = [...stage.querySelectorAll('.car-card')];
-    const dots  = [...dotsEl.querySelectorAll('.car-dot')];
+    function selectCategory(key) {
+      const cat = CATEGORIES.find((c) => c.key === key);
+      tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.key === key)));
+
+      STYLES = cat.styles;
+      N = STYLES.length;
+      active = 0;
+      stage.innerHTML = '';
+      dotsEl.innerHTML = '';
+      cards = [];
+      dots = [];
+
+      const hasStyles = N > 0;
+      carousel.style.display = hasStyles ? 'flex' : 'none';
+      info.style.display = hasStyles ? 'block' : 'none';
+      dotsEl.style.display = hasStyles ? 'flex' : 'none';
+      emptyEl.classList.toggle('show', !hasStyles);
+      if (!hasStyles) return;
+
+      STYLES.forEach((s, i) => {
+        const card = document.createElement('article');
+        card.className = 'car-card';
+        card.dataset.index = i;
+        card.setAttribute('role', 'option');
+        card.innerHTML = `
+          <div class="car-card__frame">
+            <iframe class="car-card__preview" src="${s.key}/index.html" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+          </div>
+          <div class="car-card__sheen"></div>
+          <div class="car-card__badge"><span>${s.name}</span><span>View →</span></div>
+        `;
+        card.addEventListener('click', () => {
+          if (i === active) { window.location.href = `${s.key}/index.html`; }
+          else { goTo(i); }
+        });
+        stage.appendChild(card);
+
+        const dot = document.createElement('button');
+        dot.className = 'car-dot';
+        dot.setAttribute('aria-label', `Show ${s.name}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(dot);
+      });
+
+      cards = [...stage.querySelectorAll('.car-card')];
+      dots  = [...dotsEl.querySelectorAll('.car-dot')];
+      layout();
+    }
 
     function layout() {
+      if (!N) return;
       cards.forEach((card, i) => {
         let offset = i - active;
         if (offset > N / 2) offset -= N;
@@ -229,6 +322,7 @@
     }
 
     function goTo(i) {
+      if (!N) return;
       active = ((i % N) + N) % N;
       layout();
     }
@@ -251,7 +345,7 @@
       if (Math.abs(dx) > 40) goTo(active + (dx < 0 ? 1 : -1));
     });
 
-    layout();
+    selectCategory(CATEGORIES[0].key);
   </script>
 </body>
 </html>
