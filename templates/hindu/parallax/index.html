@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="saffron">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2a0e04" />
+  <title>Saffron Flame Parallax · Shubh Vivah Invitation Template</title>
+  <meta name="description" content="A demo Hindu wedding invitation template with cinematic scroll parallax, a line-drawn Om emblem, magnetic buttons, and confetti." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:ital,wght@0,400;0,500;1,400&family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../_shared/parallax/css/styles.css?v=1" />
+  <style>
+    :root{
+      --serif:"Frank Ruhl Libre",serif;
+      --display:"DM Serif Display",serif;
+      --marc:"Work Sans",sans-serif;
+    }
+    .demo-badge{position:fixed;top:0;left:0;right:0;z-index:70;text-align:center;
+      font-family:"Marcellus",serif;letter-spacing:.12em;font-size:.72rem;
+      padding:.55rem 1rem;background:rgba(20,6,2,.85);color:#f0c99a;
+      border-bottom:1px solid rgba(216,178,90,.35)}
+    .demo-badge a{color:#f3f1ea;text-decoration:underline}
+  </style>
+</head>
+<body>
+  <div class="demo-badge">TEMPLATE PREVIEW — Saffron Flame Parallax (Hindu) · <a href="../../index.html">← Back to all styles</a></div>
+  <div class="pw-bg" aria-hidden="true"></div>
+  <div class="pw-grain" aria-hidden="true"></div>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+  <main>
+    <section class="pw-section pw-hero" id="hero">
+      <div class="pw-orb" data-speed="-.15" style="width:44vw;height:44vw;top:-10%;left:-10%"></div>
+      <div class="pw-orb" data-speed=".18" style="width:34vw;height:34vw;bottom:-8%;right:-8%"></div>
+      <div class="pw-hero__layer pw-container" data-speed=".05">
+        <div class="pw-emblem" data-reveal>
+          <svg viewBox="0 0 100 100">
+            <path d="M20 70 Q10 55 25 45 Q40 35 35 55 Q32 68 45 68 Q60 68 55 50 Q52 38 65 40"/>
+            <circle cx="70" cy="25" r="7"/>
+            <path d="M60 30 Q70 18 80 30"/>
+          </svg>
+        </div>
+        <span class="pw-kicker" data-reveal>Ganpati Bappa Morya · Shubh Vivah</span>
+        <h1 class="pw-names" data-reveal>Rohan <span>weds</span> Meera</h1>
+        <p class="pw-tag" data-reveal>Two souls, seven sacred vows, <em>one eternal bond</em></p>
+        <div class="pw-date" data-reveal>
+          <span>Sunday</span><b>06 · 12 · 2026</b><span>Your City</span>
+        </div>
+      </div>
+      <div class="pw-scroll-cue"><span>Scroll</span><i></i></div>
+    </section>
+
+    <section class="pw-section" id="blessing">
+      <div class="pw-container" data-reveal>
+        <p class="pw-quote">
+          “वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥”
+        </p>
+        <span class="pw-quote-cite">Ganesh Vandana</span>
+        <div class="pw-underline"></div>
+        <p class="pw-prose">O Lord Ganesha, of the curved trunk and mighty form, radiant as a million suns —
+          make all our endeavours free of obstacle, always.</p>
+      </div>
+    </section>
+
+    <section class="pw-section" id="couple">
+      <div class="pw-container">
+        <span class="pw-kicker" data-reveal>Bismillah</span>
+        <h2 style="font-family:var(--display);font-size:clamp(2rem,5vw,3rem);margin-top:.6rem" data-reveal>The Sacred Union</h2>
+        <div class="pw-couple-grid">
+          <article class="pw-card" data-reveal>
+            <div class="pw-card__glow" aria-hidden="true"></div>
+            <p class="pw-role">The Groom</p>
+            <h3 class="pw-name">Rohan Malhotra</h3>
+            <p class="pw-meta">Son of<br>Groom's Parents' Names</p>
+          </article>
+          <div class="pw-knot" data-reveal aria-hidden="true">
+            <div class="pw-knot__ring"></div>
+            <span class="pw-knot__ico">ॐ</span>
+          </div>
+          <article class="pw-card" data-reveal>
+            <div class="pw-card__glow" aria-hidden="true"></div>
+            <p class="pw-role">The Bride</p>
+            <h3 class="pw-name">Meera Nair</h3>
+            <p class="pw-meta">Daughter of<br>Bride's Parents' Names</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pw-section" id="countdown">
+      <div class="pw-container" data-reveal>
+        <span class="pw-kicker">Save the Date</span>
+        <h2 style="font-family:var(--display);font-size:clamp(2rem,5vw,3rem);margin-top:.6rem">The Auspicious Muhurtham</h2>
+        <p class="pw-prose">Sunday · 06 December 2026 · 10:42 AM</p>
+        <div class="pw-countdown" aria-live="polite">
+          <div class="pw-cd"><span class="pw-cd__num" id="cdDays">00</span><span class="pw-cd__lbl">Days</span></div>
+          <div class="pw-cd"><span class="pw-cd__num" id="cdHours">00</span><span class="pw-cd__lbl">Hours</span></div>
+          <div class="pw-cd"><span class="pw-cd__num" id="cdMins">00</span><span class="pw-cd__lbl">Minutes</span></div>
+          <div class="pw-cd"><span class="pw-cd__num" id="cdSecs">00</span><span class="pw-cd__lbl">Seconds</span></div>
+        </div>
+        <a class="pw-btn pw-btn--ghost" id="calBtn" href="#">＋ Add to Calendar</a>
+      </div>
+    </section>
+
+    <section class="pw-section" id="rsvp">
+      <div class="pw-container" data-reveal>
+        <span class="pw-kicker">With Blessings</span>
+        <h2 style="font-family:var(--display);font-size:clamp(2rem,5vw,3rem);margin-top:.6rem">We'd Love to Have You There</h2>
+        <p class="pw-prose">The Mandap Gardens, Your City · Reception to follow</p>
+        <a class="pw-btn pw-btn--gold" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Your+Venue+Name">➤ Get Directions</a>
+        <div class="pw-contact">
+          <a href="tel:+910000000000">📞 +91 00000 00000</a>
+          <a href="tel:+910000000000">📞 +91 00000 00000</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pw-footer">
+    <p class="pw-footer__mark">Rohan &amp; Meera · 06 · 12 · 2026</p>
+  </footer>
+
+  <script>
+    window.WEDDING_CONFIG = {
+      dateISO: '2026-12-06T10:42:00+05:30',
+      durationMinutes: 60,
+      icsProdId: 'Rohan-Meera',
+      icsUid: 'rohan-meera-vivah',
+      icsFilename: 'Rohan-Meera-Vivah',
+      summary: 'Shubh Vivah — Rohan & Meera',
+      description: 'With the blessings of our elders\\, join us for the muhurtham.',
+      location: 'The Mandap Gardens\\, Your City',
+    };
+  </script>
+  <script src="../../_shared/parallax/js/main.js?v=1"></script>
+</body>
+</html>

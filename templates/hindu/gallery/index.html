@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="crimson">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#111214" />
+  <title>Photo Story · Shubh Vivah Invitation Template</title>
+  <meta name="description" content="A demo Hindu wedding invitation template built around your own photos — full-bleed hero photo, a story timeline, and a lightbox gallery." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;1,400&family=Domine:wght@500;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../_shared/gallery/css/styles.css?v=1" />
+  <style>
+    :root{
+      --serif:"Nunito",sans-serif;
+      --display:"Domine",serif;
+      --marc:"Raleway",sans-serif;
+    }
+    .demo-badge{position:fixed;top:0;left:0;right:0;z-index:70;text-align:center;
+      font-family:"Marcellus",serif;letter-spacing:.12em;font-size:.72rem;
+      padding:.55rem 1rem;background:rgba(4,4,6,.85);color:#f0ab7a;
+      border-bottom:1px solid rgba(224,121,58,.35)}
+    .demo-badge a{color:#f5f0e6;text-decoration:underline}
+  </style>
+</head>
+<body>
+  <!--
+    HOW TO ADD YOUR OWN PHOTOS
+    Drop JPG/PNG files into this template's "photos" folder using these
+    exact filenames — each one replaces its placeholder automatically:
+      photos/hero.jpg      → full-bleed hero background
+      photos/story-1.jpg   → "How We Met"
+      photos/story-2.jpg   → "The Proposal"
+      photos/story-3.jpg   → "Save the Date"
+      photos/groom.jpg     → groom's circular portrait
+      photos/bride.jpg     → bride's circular portrait
+      photos/gallery-1.jpg … gallery-6.jpg → the gallery grid (click to enlarge)
+  -->
+  <div class="demo-badge">TEMPLATE PREVIEW — Photo Story (Hindu) · <a href="../../index.html">← Back to all styles</a></div>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero__photo photo">
+        <img src="photos/hero.jpg" alt="Rohan and Meera" loading="eager" data-fallback="https://picsum.photos/seed/hindu-hero/1600/1067">
+        <span class="photo__placeholder"><b>📷</b><span>photos/hero.jpg</span></span>
+      </div>
+      <div class="hero__inner">
+        <p class="hero-kicker" data-reveal>Ganpati Bappa Morya · Shubh Vivah</p>
+        <h1 class="hero-names" data-reveal>Rohan <em>weds</em> Meera</h1>
+        <p class="hero-tag" data-reveal>Two souls, seven sacred vows, one eternal bond</p>
+        <div class="hero-date" data-reveal><span>Sunday</span><b>06 · 12 · 2026</b><span>Your City</span></div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><i></i></div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="container center">
+        <span class="kicker" data-reveal>Our Journey</span>
+        <h2 class="title" data-reveal>Our Story</h2>
+        <div class="divider" data-reveal></div>
+        <div class="story-row" data-reveal>
+          <article class="story-card">
+            <div class="photo"><img src="photos/story-1.jpg" alt="How we met" data-fallback="https://picsum.photos/seed/hindu-story-1/700/900"><span class="photo__placeholder"><b>📷</b><span>photos/story-1.jpg</span></span></div>
+            <div class="story-card__cap"><p class="story-card__name">How We Met</p><p class="story-card__meta">Spring 2022</p></div>
+          </article>
+          <article class="story-card">
+            <div class="photo"><img src="photos/story-2.jpg" alt="The proposal" data-fallback="https://picsum.photos/seed/hindu-story-2/700/900"><span class="photo__placeholder"><b>📷</b><span>photos/story-2.jpg</span></span></div>
+            <div class="story-card__cap"><p class="story-card__name">The Proposal</p><p class="story-card__meta">Winter 2025</p></div>
+          </article>
+          <article class="story-card">
+            <div class="photo"><img src="photos/story-3.jpg" alt="Save the date" data-fallback="https://picsum.photos/seed/hindu-story-3/700/900"><span class="photo__placeholder"><b>📷</b><span>photos/story-3.jpg</span></span></div>
+            <div class="story-card__cap"><p class="story-card__name">Save the Date</p><p class="story-card__meta">06 Dec 2026</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="couple">
+      <div class="container">
+        <header class="center" data-reveal>
+          <span class="kicker">Shubh Vivah</span>
+          <h2 class="title">The Sacred Union</h2>
+          <div class="divider"></div>
+        </header>
+        <div class="couple-grid">
+          <article class="person" data-reveal>
+            <div class="person__photo photo"><img src="photos/groom.jpg" alt="Rohan" data-fallback="https://picsum.photos/seed/hindu-groom/600/600"><span class="photo__placeholder"><b>📷</b><span>photos/groom.jpg</span></span></div>
+            <p class="person__role">The Groom</p>
+            <h3 class="person__name">Rohan Malhotra</h3>
+            <p class="person__meta">Son of Groom's Parents' Names</p>
+          </article>
+          <div class="knot" data-reveal aria-hidden="true">ॐ</div>
+          <article class="person" data-reveal>
+            <div class="person__photo photo"><img src="photos/bride.jpg" alt="Meera" data-fallback="https://picsum.photos/seed/hindu-bride/600/600"><span class="photo__placeholder"><b>📷</b><span>photos/bride.jpg</span></span></div>
+            <p class="person__role">The Bride</p>
+            <h3 class="person__name">Meera Nair</h3>
+            <p class="person__meta">Daughter of Bride's Parents' Names</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container center">
+        <span class="kicker" data-reveal>Moments</span>
+        <h2 class="title" data-reveal>Our Gallery</h2>
+        <div class="divider" data-reveal></div>
+        <div class="gallery-carousel" data-reveal>
+          <div class="gallery-carousel__row">
+            <button class="gallery-carousel__nav gallery-carousel__nav--prev" aria-label="Previous photo">‹</button>
+            <div class="gallery-carousel__viewport">
+              <div class="gallery-carousel__track">
+                <div class="gallery-carousel__slide"><div class="photo"><img src="photos/gallery-1.jpg" alt="Gallery photo 1" data-fallback="https://picsum.photos/seed/hindu-g1/1200/750"><span class="photo__placeholder"><b>📷</b><span>gallery-1.jpg</span></span></div></div>
+                <div class="gallery-carousel__slide"><div class="photo"><img src="photos/gallery-2.jpg" alt="Gallery photo 2" data-fallback="https://picsum.photos/seed/hindu-g2/1200/750"><span class="photo__placeholder"><b>📷</b><span>gallery-2.jpg</span></span></div></div>
+                <div class="gallery-carousel__slide"><div class="photo"><img src="photos/gallery-3.jpg" alt="Gallery photo 3" data-fallback="https://picsum.photos/seed/hindu-g3/1200/750"><span class="photo__placeholder"><b>📷</b><span>gallery-3.jpg</span></span></div></div>
+                <div class="gallery-carousel__slide"><div class="photo"><img src="photos/gallery-4.jpg" alt="Gallery photo 4" data-fallback="https://picsum.photos/seed/hindu-g4/1200/750"><span class="photo__placeholder"><b>📷</b><span>gallery-4.jpg</span></span></div></div>
+                <div class="gallery-carousel__slide"><div class="photo"><img src="photos/gallery-5.jpg" alt="Gallery photo 5" data-fallback="https://picsum.photos/seed/hindu-g5/1200/750"><span class="photo__placeholder"><b>📷</b><span>gallery-5.jpg</span></span></div></div>
+                <div class="gallery-carousel__slide"><div class="photo"><img src="photos/gallery-6.jpg" alt="Gallery photo 6" data-fallback="https://picsum.photos/seed/hindu-g6/1200/750"><span class="photo__placeholder"><b>📷</b><span>gallery-6.jpg</span></span></div></div>
+              </div>
+            </div>
+            <button class="gallery-carousel__nav gallery-carousel__nav--next" aria-label="Next photo">›</button>
+          </div>
+          <div class="gallery-carousel__dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="countdown">
+      <div class="container center">
+        <span class="kicker" data-reveal>Save the Date</span>
+        <h2 class="title" data-reveal>The Auspicious Muhurtham</h2>
+        <div class="divider" data-reveal></div>
+        <div class="event-card" data-reveal>
+          <p style="color:var(--ink-dim)">Sunday · 06 December 2026 · 10:42 AM</p>
+          <div class="countdown" aria-live="polite">
+            <div class="cd"><span class="cd__num" id="cdDays">00</span><span class="cd__lbl">Days</span></div>
+            <div class="cd"><span class="cd__num" id="cdHours">00</span><span class="cd__lbl">Hours</span></div>
+            <div class="cd"><span class="cd__num" id="cdMins">00</span><span class="cd__lbl">Minutes</span></div>
+            <div class="cd"><span class="cd__num" id="cdSecs">00</span><span class="cd__lbl">Seconds</span></div>
+          </div>
+          <a class="btn btn--ghost" id="calBtn" href="#">＋ Add to Calendar</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rsvp">
+      <div class="container center" data-reveal>
+        <span class="kicker">With Blessings</span>
+        <h2 class="title">We'd Love to Have You There</h2>
+        <div class="divider"></div>
+        <p style="color:var(--ink-dim)">The Mandap Gardens, Your City · Reception to follow</p>
+        <a class="btn btn--gold" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Your+Venue+Name">➤ Get Directions</a>
+        <div class="contact">
+          <a href="tel:+910000000000">📞 +91 00000 00000</a>
+          <a href="tel:+910000000000">📞 +91 00000 00000</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><p class="mark">Rohan &amp; Meera · 06 · 12 · 2026</p></footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">✕</button>
+    <img id="lightboxImg" alt="">
+  </div>
+
+  <script>
+    window.WEDDING_CONFIG = {
+      dateISO: '2026-12-06T10:42:00+05:30',
+      durationMinutes: 60,
+      icsProdId: 'Rohan-Meera',
+      icsUid: 'rohan-meera-vivah',
+      icsFilename: 'Rohan-Meera-Vivah',
+      summary: 'Shubh Vivah — Rohan & Meera',
+      description: 'With the blessings of our elders\\, join us for the muhurtham.',
+      location: 'The Mandap Gardens\\, Your City',
+    };
+  </script>
+  <script src="../../_shared/gallery/js/main.js?v=1"></script>
+</body>
+</html>

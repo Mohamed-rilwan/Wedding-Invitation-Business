@@ -22,15 +22,15 @@
   --leaf-deep:#1c4326;
   --shadow:0 30px 80px -30px rgba(0,0,0,.75);
   --ease:cubic-bezier(.19,1,.22,1);
-  --serif:"Cormorant Garamond",serif;
-  --display:"Eczar",serif;
-  --marc:"Marcellus",serif;
+  --serif:"Vollkorn",serif;
+  --display:"Rozha One",serif;
+  --marc:"Cinzel",serif;
   --script:"Yatra One",cursive;
   --deva:"Noto Sans Devanagari",serif;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:clamp(17px,1rem + 0.4vw,21px)}
+html{scroll-behavior:smooth;font-size:clamp(17px,1rem + 0.45vw,22px)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 body{

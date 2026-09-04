@@ -18,14 +18,14 @@
   --ink-dim:#6b5f52;
   --shadow:0 26px 60px -26px rgba(90,66,30,.35);
   --ease:cubic-bezier(.19,1,.22,1);
-  --serif:"Cormorant Garamond",serif;
-  --display:"Cinzel",serif;
-  --marc:"Marcellus",serif;
-  --script:"Great Vibes",cursive;
+  --serif:"Crimson Text",serif;
+  --display:"DM Serif Text",serif;
+  --marc:"Cormorant SC",serif;
+  --script:"Pinyon Script",cursive;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:clamp(17px,1rem + 0.4vw,21px)}
+html{scroll-behavior:smooth;font-size:clamp(17px,1rem + 0.45vw,22px)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 body{
