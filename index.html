@@ -16,10 +16,12 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
-      background:
+      background-color:var(--bg);
+      background-image:
         radial-gradient(60% 50% at 18% 8%, rgba(var(--glow),.14), transparent 60%),
         radial-gradient(50% 45% at 85% 12%, rgba(120,80,220,.12), transparent 60%),
         radial-gradient(120% 100% at 50% 0%,#14161f,var(--bg) 60%);
+      background-repeat:no-repeat;
       color:var(--ink); font-family:"Cormorant Garamond",serif; min-height:100vh;
       padding:clamp(2.2rem,6vw,5rem) 1.25rem clamp(3rem,8vw,6rem);
       overflow-x:hidden;
