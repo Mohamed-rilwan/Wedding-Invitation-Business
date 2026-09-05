@@ -2,350 +2,362 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#012540" />
-  <title>Rilwan &amp; Kashifa · Nikkah Invitation · 6 Dec 2026</title>
-  <meta name="description" content="With the blessings of Allah, we invite you to celebrate the Nikkah of S. Mohamed Rilwan &amp; Kashifa Teheseen. 6th December 2026, Chennai." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose Your Wedding Invitation Style · Digital Wedding Templates</title>
+  <meta name="description" content="Preview our digital wedding invitation styles — Royal Blue, Emerald &amp; Gold, Rose Gold Blush, Midnight Plum, Hindu Traditional, and Christian Traditional — and pick the one you love." />
+  <meta name="robots" content="noindex" />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700&family=Marcellus&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#07080b; --card:#12151c; --ink:#f4ecd8; --dim:#9b9891;
+      --gold:#d8b25a; --gold-soft:#e7cd93;
+      --glow: 216,178,90;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background:
+        radial-gradient(60% 50% at 18% 8%, rgba(var(--glow),.14), transparent 60%),
+        radial-gradient(50% 45% at 85% 12%, rgba(120,80,220,.12), transparent 60%),
+        radial-gradient(120% 100% at 50% 0%,#14161f,var(--bg) 60%);
+      color:var(--ink); font-family:"Cormorant Garamond",serif; min-height:100vh;
+      padding:clamp(2.2rem,6vw,5rem) 1.25rem clamp(3rem,8vw,6rem);
+      overflow-x:hidden;
+    }
+    header{text-align:center;max-width:720px;margin:0 auto clamp(2.2rem,5vw,3rem)}
+    .kicker{font-family:"Marcellus",serif;letter-spacing:.4em;text-transform:uppercase;
+      font-size:.7rem;color:var(--gold)}
+    h1{font-family:"Big Shoulders Display",sans-serif;font-weight:700;font-size:clamp(2.2rem,5.6vw,3.6rem);
+      margin:.6rem 0 .8rem;line-height:1.1;letter-spacing:-.01em}
+    header p{font-size:1.15rem;color:var(--dim);max-width:56ch;margin-inline:auto}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Tangerine:wght@400;700&family=Noto+Sans+Tamil:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet" />
+    /* ===================== CAROUSEL ===================== */
+    .carousel{
+      position:relative;max-width:1100px;margin:clamp(2.5rem,6vw,4rem) auto 0;
+      display:flex;align-items:center;justify-content:center;gap:clamp(.5rem,2vw,1.5rem);
+      outline:none;
+    }
+    .car-stage{
+      position:relative;flex:1;height:clamp(280px,46vw,420px);
+      perspective:1600px;display:flex;align-items:center;justify-content:center;
+    }
+    .car-card{
+      position:absolute;width:min(58vw,300px);height:min(90%,380px);
+      border-radius:26px;overflow:hidden;cursor:pointer;
+      background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(0,0,0,.35)), var(--card);
+      border:1px solid rgba(216,178,90,.22);
+      box-shadow:0 30px 60px -20px rgba(0,0,0,.65), 0 0 0 1px rgba(0,0,0,.2) inset;
+      transition:transform .65s cubic-bezier(.19,1,.22,1),
+                 opacity .65s cubic-bezier(.19,1,.22,1),
+                 filter .65s cubic-bezier(.19,1,.22,1);
+      will-change:transform,opacity,filter;
+    }
+    .car-card[data-active="true"]{ box-shadow:0 40px 80px -20px rgba(0,0,0,.75), 0 0 60px -10px rgba(var(--glow),.35); }
+    .car-card__frame{position:absolute;inset:0;border-radius:inherit;overflow:hidden;background:#000}
+    .car-card__preview{
+      position:absolute;top:0;left:0;width:400%;height:400%;
+      transform:scale(.25);transform-origin:0 0;border:0;pointer-events:none;
+    }
+    .car-card__sheen{position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+      background:linear-gradient(160deg,rgba(255,255,255,.14),transparent 45%);
+      mix-blend-mode:screen;}
+    .car-card__badge{
+      position:absolute;left:.9rem;bottom:.9rem;right:.9rem;
+      display:flex;align-items:center;justify-content:space-between;gap:.5rem;
+      font-family:"Marcellus",serif;letter-spacing:.12em;text-transform:uppercase;font-size:.62rem;
+      color:var(--gold-soft);padding:.5rem .7rem;border-radius:999px;
+      background:rgba(5,6,10,.55);backdrop-filter:blur(6px);border:1px solid rgba(216,178,90,.25);
+      opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease;
+    }
+    .car-card[data-active="true"] .car-card__badge{opacity:1;transform:none}
 
-  <link rel="stylesheet" href="css/styles.css?v=11" />
+    .car-nav{
+      flex:0 0 auto;width:52px;height:52px;border-radius:50%;
+      display:grid;place-items:center;color:var(--gold-soft);
+      background:rgba(255,255,255,.04);border:1px solid rgba(216,178,90,.3);
+      backdrop-filter:blur(6px);cursor:pointer;font-size:1.3rem;line-height:1;
+      transition:transform .3s ease,border-color .3s ease,background .3s ease,color .3s ease;
+    }
+    .car-nav:hover{transform:scale(1.08);border-color:var(--gold);color:var(--gold);background:rgba(216,178,90,.1)}
+    .car-nav:active{transform:scale(.96)}
+    @media (max-width:640px){ .car-nav{width:42px;height:42px;font-size:1.1rem} }
+
+    /* ===================== INFO PANEL ===================== */
+    .car-info{max-width:560px;margin:clamp(2rem,5vw,2.8rem) auto 0;text-align:center;
+      min-height:150px;}
+    .car-info__name{font-family:"Big Shoulders Display",sans-serif;font-weight:700;
+      font-size:clamp(1.7rem,4vw,2.4rem);opacity:0;transform:translateY(10px);
+      transition:opacity .45s ease,transform .45s ease;}
+    .car-info__desc{color:var(--dim);font-size:1.12rem;margin-top:.5rem;
+      opacity:0;transform:translateY(10px);transition:opacity .45s ease .05s,transform .45s ease .05s;}
+    .car-info.in .car-info__name,.car-info.in .car-info__desc{opacity:1;transform:none}
+    .car-cta{
+      display:inline-block;margin-top:1.3rem;font-family:"Marcellus",serif;letter-spacing:.18em;
+      text-transform:uppercase;font-size:.74rem;color:#0b0d12;text-decoration:none;
+      padding:.85rem 2rem;border-radius:999px;
+      background:linear-gradient(120deg,var(--gold-soft),var(--gold));
+      box-shadow:0 14px 30px -12px rgba(216,178,90,.6);
+      transition:transform .35s cubic-bezier(.19,1,.22,1),box-shadow .35s ease;
+    }
+    .car-cta:hover{transform:translateY(-3px);box-shadow:0 18px 40px -12px rgba(216,178,90,.8)}
+
+    /* ===================== DOTS ===================== */
+    .car-dots{display:flex;justify-content:center;gap:.6rem;margin-top:1.6rem}
+    .car-dot{width:9px;height:9px;border-radius:50%;border:0;padding:0;cursor:pointer;
+      background:rgba(244,236,216,.25);transition:.4s cubic-bezier(.19,1,.22,1);}
+    .car-dot[aria-selected="true"]{background:var(--gold);width:26px;border-radius:6px;
+      box-shadow:0 0 10px rgba(var(--glow),.6)}
+
+    footer{text-align:center;margin-top:clamp(3rem,7vw,5rem);color:var(--dim);font-size:.95rem}
+    footer a{color:var(--gold-soft)}
+
+    /* ===================== CATEGORY TABS ===================== */
+    .cat-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;
+      margin:clamp(1.6rem,4vw,2.4rem) auto 0;max-width:640px}
+    .cat-tab{
+      display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;
+      font-family:"Marcellus",serif;letter-spacing:.14em;text-transform:uppercase;font-size:.74rem;
+      color:var(--dim);padding:.65rem 1.3rem;border-radius:999px;
+      border:1px solid rgba(216,178,90,.22);background:rgba(255,255,255,.03);
+      transition:.35s cubic-bezier(.19,1,.22,1);
+    }
+    .cat-tab__count{font-size:.66rem;opacity:.7}
+    .cat-tab:hover{color:var(--cream,#f4ecd8);border-color:rgba(216,178,90,.5)}
+    .cat-tab[aria-selected="true"]{
+      color:#0b0d12;background:linear-gradient(120deg,var(--gold-soft),var(--gold));
+      border-color:transparent;box-shadow:0 14px 30px -14px rgba(216,178,90,.7);
+    }
+    .cat-tab[disabled]{opacity:.45;cursor:not-allowed}
+    .cat-tab[disabled]:hover{color:var(--dim);border-color:rgba(216,178,90,.22)}
+
+    /* ===================== COMING SOON ===================== */
+    .cat-empty{display:none;max-width:520px;margin:clamp(3rem,7vw,4.5rem) auto 0;text-align:center}
+    .cat-empty.show{display:block}
+    .cat-empty__ico{font-size:2.4rem;color:var(--gold-soft);opacity:.85}
+    .cat-empty__title{font-family:"Big Shoulders Display",sans-serif;font-weight:700;
+      font-size:clamp(1.5rem,3.6vw,2rem);margin-top:.8rem}
+    .cat-empty__desc{color:var(--dim);font-size:1.05rem;margin-top:.6rem}
+
+    @media (prefers-reduced-motion:reduce){
+      .car-card,.car-info__name,.car-info__desc,.car-cta,.car-dot,.cat-tab{transition:none}
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <span class="kicker">Digital Wedding Invitations</span>
+    <h1>Choose Your Invitation Style</h1>
+    <p>Every style is a fully working preview — spin through them, then tap through to
+       explore the countdown, calendar, and venue map. We'll personalise the one you love
+       with your names, dates, and photos.</p>
+  </header>
 
-  <!-- ============ PRELOADER ============ -->
-  <div class="preloader" id="preloader">
-    <div class="preloader__star">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <g class="spin-slow" fill="none" stroke="currentColor" stroke-width="1">
-          <polygon points="50,4 61,39 96,39 68,61 79,96 50,74 21,96 32,61 4,39 39,39" />
-          <polygon points="50,4 61,39 96,39 68,61 79,96 50,74 21,96 32,61 4,39 39,39" transform="rotate(45 50 50)" />
-          <circle cx="50" cy="50" r="30" />
-          <circle cx="50" cy="50" r="22" />
-        </g>
-      </svg>
-    </div>
-    <p class="preloader__text" lang="ar" dir="rtl">بِسْمِ اللَّٰهِ</p>
-    <p class="preloader__sub">In the name of Allah</p>
+  <div class="cat-tabs" id="catTabs" role="tablist" aria-label="Wedding tradition"></div>
+
+  <div class="carousel" id="carousel" tabindex="0" aria-roledescription="carousel" aria-label="Invitation styles">
+    <button class="car-nav car-nav--prev" id="prevBtn" aria-label="Previous style">‹</button>
+    <div class="car-stage" id="stage" role="listbox" aria-label="Choose an invitation style"></div>
+    <button class="car-nav car-nav--next" id="nextBtn" aria-label="Next style">›</button>
   </div>
 
-  <!-- ============ WEBGL BACKGROUND ============ -->
-  <canvas id="gl" class="gl-canvas" aria-hidden="true"></canvas>
-  <div class="grain" aria-hidden="true"></div>
+  <div class="car-info" id="carInfo">
+    <h2 class="car-info__name" id="carName"></h2>
+    <p class="car-info__desc" id="carDesc"></p>
+    <a class="car-cta" id="carCta" href="#">Preview this style →</a>
+  </div>
 
-  <!-- ============ FLOATING PETALS ============ -->
-  <div class="petals" id="petals" aria-hidden="true"></div>
+  <div class="car-dots" id="carDots"></div>
 
-  <!-- ============ PROGRESS BAR ============ -->
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="cat-empty" id="catEmpty">
+    <div class="cat-empty__ico">✦</div>
+    <p class="cat-empty__title">More styles coming soon</p>
+    <p class="cat-empty__desc">We're designing this collection next.
+       Check back shortly, or ask us and we'll personalise one for you early.</p>
+  </div>
 
-  <!-- ============ NAV DOTS ============ -->
-  <nav class="dotnav" id="dotnav" aria-label="Section navigation">
-    <a href="#hero"   data-label="Welcome"><span></span></a>
-    <a href="#invite" data-label="Invitation"><span></span></a>
-    <a href="#couple" data-label="The Couple"><span></span></a>
-    <a href="#event"  data-label="The Day"><span></span></a>
-    <a href="#venue"  data-label="Venue"><span></span></a>
-    <a href="#hosts"  data-label="With Love"><span></span></a>
-  </nav>
-
-  <main>
-
-    <!-- ============ HERO ============ -->
-    <section class="section hero" id="hero">
-      <div class="frame" aria-hidden="true">
-        <span class="frame__corner tl"></span>
-        <span class="frame__corner tr"></span>
-        <span class="frame__corner bl"></span>
-        <span class="frame__corner br"></span>
-      </div>
-
-      <div class="hero__inner reveal-group">
-        <p class="salaam" lang="ar" dir="rtl" data-reveal>السَّلَامُ عَلَيْكُمْ</p>
-        <p class="eyebrow" data-reveal>Assalamu Alaikum · Nikkah Invitation</p>
-
-        <div class="ornament ornament--top" data-reveal aria-hidden="true">
-          <span class="line"></span>
-          <svg viewBox="0 0 24 24" class="ornament__moon"><path d="M17 12a7 7 0 1 1-6.9-7 5.6 5.6 0 1 0 6.9 7z"/></svg>
-          <span class="line"></span>
-        </div>
-
-        <h1 class="couple-names" data-reveal>
-          <span class="cn cn--groom">Rilwan</span>
-          <span class="cn cn--amp">&amp;</span>
-          <span class="cn cn--bride">Kashifa</span>
-        </h1>
-
-        <p class="hero__tag" data-reveal>Two hearts, one prayer, forever <em>bismillah</em></p>
-
-        <div class="hero__date" data-reveal>
-          <span>Sunday</span>
-          <span class="hero__date-num">06 · 12 · 2026</span>
-          <span>Chennai</span>
-        </div>
-      </div>
-
-      <a class="scroll-cue" href="#invite" aria-label="Scroll down">
-        <span class="scroll-cue__line"></span>
-      </a>
-    </section>
-
-    <!-- ============ INVITATION / DUA ============ -->
-    <section class="section invite" id="invite">
-      <div class="container narrow center">
-        <p class="bismillah-ar" lang="ar" dir="rtl" data-reveal>بِسْمِ اللَّٰهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-        <p class="bismillah-tr" data-reveal>In the name of Allah, the Most Gracious, the Most Merciful</p>
-
-        <div class="divider" data-reveal aria-hidden="true"><span></span><i></i><span></span></div>
-
-        <p class="lead" data-reveal>
-          “What began as a prayer became our greatest blessing.”
-        </p>
-        <p class="prose" data-reveal>
-          Your friendship and love have been a cherished part of their journey, and we
-          warmly invite you to celebrate their <strong>Nikkah</strong> with us, a union
-          blessed by the Almighty and adorned with the duas of our elders.
-        </p>
-        <p class="ayah" lang="ar" dir="rtl" data-reveal>وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا</p>
-        <p class="ayah-tr" data-reveal>“And among His signs is that He created for you mates from among yourselves…” <span>Qur’an 30:21</span></p>
-      </div>
-    </section>
-
-    <!-- ============ THE COUPLE ============ -->
-    <section class="section couple" id="couple">
-      <div class="container">
-        <header class="sec-head center" data-reveal>
-          <span class="sec-head__kicker">Bismillah</span>
-          <h2 class="sec-head__title">The Blessed Union</h2>
-          <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
-        </header>
-
-        <div class="couple-grid">
-          <!-- GROOM -->
-          <article class="person card" data-reveal data-tilt>
-            <div class="card__glow" aria-hidden="true"></div>
-            <p class="person__role">The Groom</p>
-            <h3 class="person__name">S. Mohamed Rilwan</h3>
-            <p class="person__lineage">Son of</p>
-            <p class="person__parents"> M.S. Shaik Dawood<br>&amp;  M.M. Salima Salamath</p>
-            <p class="person__lineage">Grandson of</p>
-            <p class="person__grands">
-              Late Haji M.I. Sadakathullah &amp; Late Hajiani S.M. Haleema Beevi  <em>(Paternal)</em><br>
-              Late Haji M.A. Mohamed Gani &amp; Hajiani M.A. Jailani Beevi  <em>(Maternal)</em>
-            </p>
-          </article>
-
-          <!-- KNOT -->
-          <div class="couple-knot" data-reveal aria-hidden="true">
-            <div class="couple-knot__ring"></div>
-            <span class="couple-knot__amp">&amp;</span>
-            <p class="couple-knot__word">Nikkah</p>
-          </div>
-
-          <!-- BRIDE -->
-          <article class="person card" data-reveal data-tilt>
-            <div class="card__glow" aria-hidden="true"></div>
-            <p class="person__role">The Bride</p>
-            <h3 class="person__name">Kashifa Teheseen</h3>
-            <p class="person__lineage">Daughter of</p>
-            <p class="person__parents">A. Shahul Hameed<br>&amp; S. Ameen Farhath Mubeen</p>
-            <p class="person__lineage">Granddaughter of</p>
-            <p class="person__grands">
-              Late K.S. Abdul Rahman &amp; A. Ayisha Gani <em>(Paternal)</em><br>
-              M. Mohammed Hanif &amp; M. Julekha Begum <em>(Maternal)</em>
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ EVENT / COUNTDOWN ============ -->
-    <section class="section event" id="event">
-      <div class="container center">
-        <header class="sec-head center" data-reveal>
-          <span class="sec-head__kicker">Save the Date</span>
-          <h2 class="sec-head__title">The Auspicious Day</h2>
-          <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
-        </header>
-
-        <div class="event-card" data-reveal>
-          <div class="event-card__row">
-            <div class="event-item">
-              <span class="event-item__ico">✦</span>
-              <span class="event-item__k">Day</span>
-              <span class="event-item__v">Sunday</span>
-            </div>
-            <div class="event-item event-item--big">
-              <span class="event-item__k">December</span>
-              <span class="event-item__date">06</span>
-              <span class="event-item__v">2026</span>
-            </div>
-            <div class="event-item">
-              <span class="event-item__ico">✦</span>
-              <span class="event-item__k">Time</span>
-              <span class="event-item__v">11:00<small class="ampm">AM</small><br>–&thinsp;12:00<small class="ampm">PM</small></span>
-            </div>
-          </div>
-          <p class="event-card__hijri" lang="ar" dir="rtl">١٤٤٨ · جمادى الآخرة ٢٦</p>
-          <p class="event-card__hijri-tr">1448 AH · Jamadul Aakhir 26 &nbsp;·&nbsp; Nikkah followed by Lunch</p>
-        </div>
-
-        <div class="countdown" id="countdown" data-reveal aria-live="polite">
-          <div class="cd"><span class="cd__num" id="cdDays">00</span><span class="cd__lbl">Days</span></div>
-          <div class="cd"><span class="cd__num" id="cdHours">00</span><span class="cd__lbl">Hours</span></div>
-          <div class="cd"><span class="cd__num" id="cdMins">00</span><span class="cd__lbl">Minutes</span></div>
-          <div class="cd"><span class="cd__num" id="cdSecs">00</span><span class="cd__lbl">Seconds</span></div>
-        </div>
-
-        <a class="btn btn--ghost" id="calBtn" href="#" data-reveal>＋ Add to Calendar</a>
-      </div>
-    </section>
-
-    <!-- ============ VENUE + DIRECTIONS ============ -->
-    <section class="section venue" id="venue">
-      <div class="container">
-        <header class="sec-head center" data-reveal>
-          <span class="sec-head__kicker">In shā’ Allah</span>
-          <h2 class="sec-head__title">The Venue</h2>
-          <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
-        </header>
-
-        <div class="venue-grid">
-          <div class="venue-info" data-reveal>
-            <h3 class="venue-info__name">Rani Mahal</h3>
-            <p class="venue-info__hall">Blue Lagoon Wedding Complex</p>
-            <address class="venue-info__addr">
-              5/72, Raja Nagar, Neelankarai (E.C.R),<br>
-              Chennai, Tamil Nadu - 600115
-            </address>
-            <div class="venue-actions">
-              <a class="btn btn--gold" target="_blank" rel="noopener"
-                 href="https://www.google.com/maps/search/?api=1&query=Blue+Lagoon+Wedding+Complex+Neelankarai+Chennai+600115">
-                 ➤ Get Directions
-              </a>
-              <a class="btn btn--ghost" target="_blank" rel="noopener"
-                 href="https://www.google.com/maps/dir/?api=1&destination=Blue+Lagoon+Wedding+Complex+Neelankarai+Chennai+600115">
-                 Navigate (Live)
-              </a>
-            </div>
-            <p class="venue-info__note">Ample parking available · Kindly arrive by 10:00 AM</p>
-          </div>
-
-          <div class="venue-map" data-reveal id="venueMap"
-               data-src="https://maps.google.com/maps?q=Blue%20Lagoon%20Wedding%20Complex%20Neelankarai%20Chennai%20600115&t=&z=15&ie=UTF8&iwloc=&output=embed">
-            <button class="mapcard" id="mapCard" type="button"
-                    aria-label="Show the live map to Rani Mahal, Neelankarai">
-              <svg class="mapcard__art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <!-- Bay of Bengal -->
-                <path class="mapcard__sea" d="M330 0c-8 60-14 120-6 180s18 90 24 120h52V0z"/>
-                <g class="mapcard__waves">
-                  <path d="M336 60h44M332 104h48M334 150h46M338 196h42M344 242h36"/>
-                </g>
-                <!-- coast + side streets -->
-                <path class="mapcard__coast" d="M330 0c-8 60-14 120-6 180s18 90 24 120"/>
-                <g class="mapcard__streets">
-                  <path d="M0 74h250M0 148h236M0 222h248M84 0v300M170 0v300"/>
-                </g>
-                <!-- East Coast Road -->
-                <path class="mapcard__ecr" d="M262 -10c-6 70-10 140-4 210 3 40 8 70 12 110"/>
-                <path class="mapcard__route" d="M262 -10c-6 70-10 140-4 210 3 40 8 70 12 110"/>
-                <!-- venue -->
-                <g class="mapcard__pin" transform="translate(258 150)">
-                  <circle class="mapcard__ping" r="10"/>
-                  <circle class="mapcard__ping mapcard__ping--2" r="10"/>
-                  <path class="mapcard__drop" d="M0-26c-8 0-14 6-14 14 0 10 14 26 14 26s14-16 14-26c0-8-6-14-14-14z"/>
-                  <circle class="mapcard__dot" cy="-12" r="4.6"/>
-                </g>
-              </svg>
-
-              <span class="mapcard__label">
-                <span class="mapcard__name">Rani Mahal</span>
-                <span class="mapcard__hint">Tap for the live map</span>
-              </span>
-            </button>
-            <div class="venue-map__frame" aria-hidden="true"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ HOSTS / WELCOME ============ -->
-    <section class="section hosts" id="hosts">
-      <div class="container center">
-        <header class="sec-head center" data-reveal>
-          <span class="sec-head__kicker">With open hearts &amp; smiling faces</span>
-          <h2 class="sec-head__title">Warmly Welcoming You</h2>
-          <div class="divider" aria-hidden="true"><span></span><i></i><span></span></div>
-        </header>
-
-        <div class="request" data-reveal>
-          <p>We kindly request the honour of your presence along with your family to grace the
-             occasion, bless the newlyweds, and pray for their long and prosperous life together.</p>
-        </div>
-
-        <p class="welcome-and" data-reveal>All our Family, Friends and Relatives</p>
-
-
-        <div class="signoff" data-reveal>
-          <div class="signoff__col">
-            <p class="signoff__lbl">Yours lovingly</p>
-            <p class="signoff__names">M.A.M. Syed Musthafa<br>&amp; M.A. Syed Rabiathul Basaria</p>
-            <p class="signoff__place">Bangalore</p>
-          </div>
-          <div class="signoff__col">
-            <p class="signoff__lbl">On behalf of the bride</p>
-            <p class="signoff__names">A. Shahul Hameed<br>&amp; S. Ameen Farhath Mubeen</p>
-            <p class="signoff__place">Chennai</p>
-          </div>
-        </div>
-
-        <div class="contact" data-reveal>
-          <a href="tel:+919886598461" class="contact__pill">📞 +91 98865 98461</a>
-          <a href="tel:+919113629855" class="contact__pill">📞 +91 91136 29855</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ FOOTER ============ -->
-    <footer class="footer">
-      <p class="footer__dua" lang="ar" dir="rtl">بَارَكَ اللَّٰهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
-      <p class="footer__dua-tr">“May Allah bless you, and shower His blessings upon you, and join you together in goodness.”</p>
-      <p class="footer__mark">Rilwan &amp; Kashifa · 06 · 12 · 2026</p>
-    </footer>
-
-  </main>
-
-  <audio id="ambience" src="Background.mp3" loop preload="auto" playsinline></audio>
-
-  <button class="mute-toggle" id="muteToggle" aria-pressed="false" title="Toggle ambience">
-    <span class="mute-toggle__on">♪</span>
-    <span class="mute-toggle__off">✕</span>
-  </button>
-
-  <button class="theme-switch" id="themeSwitch" role="switch" aria-checked="false"
-          aria-label="Switch colour theme between blue and green" title="Switch blue / green">
-    <span class="theme-switch__track" aria-hidden="true">
-      <span class="theme-switch__thumb">✦</span>
-    </span>
-    <span class="theme-switch__label" id="themeLabel">Blue</span>
-  </button>
+  <footer>
+    <p>Every style includes a countdown timer, add-to-calendar, live venue map, ambient music
+       toggle, and gentle scroll animations. <a href="example/index.html">See a real invitation example →</a></p>
+  </footer>
 
   <script>
-    window.WEDDING_CONFIG = {
-      dateISO: '2026-12-06T11:00:00+05:30',
-      durationMinutes: 60,
-      icsProdId: 'Rilwan-Kashifa',
-      icsUid: 'rilwan-kashifa-nikkah',
-      icsFilename: 'Rilwan-Kashifa-Nikkah',
-      summary: 'Nikkah — Rilwan & Kashifa',
-      description: 'With the blessings of Allah\\, join us for the Nikkah followed by lunch.',
-      location: 'Rani Mahal\\, Blue Lagoon Wedding Complex\\, 5/72 Raja Nagar\\, Neelankarai\\, Chennai 600115',
-      mapLabel: 'Map to Rani Mahal, Blue Lagoon Wedding Complex, Neelankarai, Chennai',
-    };
+    const CATEGORIES = [
+      {
+        key: 'muslim', label: 'Muslim · Nikkah', icon: '☾',
+        styles: [
+          { key:'muslim/royal-blue',    name:'Royal Blue',       desc:"Deep blue & gold, Islamic-luxe, with a live blue ⇄ green colour switch.", glow:'15,127,184' },
+          { key:'muslim/emerald-gold',  name:'Emerald & Gold',    desc:"Rich emerald green with warm gold accents — classic and elegant.",        glow:'28,122,84'  },
+          { key:'muslim/rose-gold',     name:'Rose Gold Blush',   desc:"Soft blush pink with rose gold accents — romantic and modern.",           glow:'168,90,104' },
+          { key:'muslim/midnight-plum', name:'Midnight Plum',     desc:"Deep plum & gold — dramatic, moody, and unforgettable.",                  glow:'92,58,134'  },
+          { key:'muslim/slideshow',     name:'Teal Slideshow',    desc:"A full-screen snap-scroll slideshow format — teal & gold, one bold idea per screen.", glow:'13,59,62' },
+          { key:'muslim/parallax',      name:'Nightfall Indigo',  desc:"Cinematic scroll parallax with a line-drawn crescent emblem, magnetic buttons and confetti.", glow:'28,37,112' },
+          { key:'muslim/gallery',       name:'Photo Story',       desc:"Built around your own photos — full-bleed hero photo, a story timeline, and a lightbox gallery.", glow:'216,178,90' },
+          { key:'muslim/unwrap',        name:'Untie the Bow',     desc:"Wrapped in a ribbon and bow — visitors untie it to reveal the invitation inside.", glow:'216,178,90' },
+        ],
+      },
+      {
+        key: 'hindu', label: 'Hindu · Vivah', icon: 'ॐ',
+        styles: [
+          { key:'hindu/hindu-wedding', name:'Hindu Traditional', desc:"Maroon & gold with an animated banana-tree entrance and marigold petals.", glow:'212,175,55' },
+          { key:'hindu/slideshow',     name:'Terracotta Slideshow', desc:"A full-screen snap-scroll slideshow format — terracotta & gold, one bold idea per screen.", glow:'90,38,18' },
+          { key:'hindu/parallax',      name:'Saffron Flame',        desc:"Cinematic scroll parallax with a line-drawn Om emblem, magnetic buttons and confetti.", glow:'168,56,15' },
+          { key:'hindu/gallery',       name:'Photo Story',          desc:"Built around your own photos — full-bleed hero photo, a story timeline, and a lightbox gallery.", glow:'224,121,58' },
+          { key:'hindu/unwrap',        name:'Untie the Bow',        desc:"Wrapped in a ribbon and bow — visitors untie it to reveal the invitation inside.", glow:'224,121,58' },
+        ],
+      },
+      {
+        key: 'christian', label: 'Christian', icon: '✝',
+        styles: [
+          { key:'christian/christian-wedding', name:'Christian Traditional', desc:"Ivory & gold with swinging chapel bells, a rose-and-lace garland, and falling petals.", glow:'184,147,62' },
+          { key:'christian/slideshow', name:'Sage Slideshow', desc:"A full-screen snap-scroll slideshow format — sage & ivory, one bold idea per screen.", glow:'63,79,58' },
+          { key:'christian/parallax',  name:'Champagne Blush', desc:"Cinematic scroll parallax with a line-drawn cross emblem, magnetic buttons and confetti.", glow:'201,143,122' },
+          { key:'christian/gallery',   name:'Photo Story',     desc:"Built around your own photos — full-bleed hero photo, a story timeline, and a lightbox gallery.", glow:'184,147,62' },
+          { key:'christian/unwrap',    name:'Untie the Bow',   desc:"Wrapped in a ribbon and bow — visitors untie it to reveal the invitation inside.", glow:'184,147,62' },
+        ],
+      },
+    ];
+
+    const tabsEl  = document.getElementById('catTabs');
+    const carousel = document.getElementById('carousel');
+    const stage   = document.getElementById('stage');
+    const dotsEl  = document.getElementById('carDots');
+    const info    = document.getElementById('carInfo');
+    const nameEl  = document.getElementById('carName');
+    const descEl  = document.getElementById('carDesc');
+    const ctaEl   = document.getElementById('carCta');
+    const emptyEl = document.getElementById('catEmpty');
+
+    let STYLES = [];
+    let N = 0;
+    let active = 0;
+    let cards = [];
+    let dots = [];
+
+    CATEGORIES.forEach((cat) => {
+      const tab = document.createElement('button');
+      tab.className = 'cat-tab';
+      tab.setAttribute('role', 'tab');
+      tab.dataset.key = cat.key;
+      tab.innerHTML = `<span>${cat.icon}</span><span>${cat.label}</span>` +
+        (cat.styles.length ? `<span class="cat-tab__count">(${cat.styles.length})</span>` : `<span class="cat-tab__count">Soon</span>`);
+      tab.addEventListener('click', () => selectCategory(cat.key));
+      tabsEl.appendChild(tab);
+    });
+    const tabs = [...tabsEl.querySelectorAll('.cat-tab')];
+
+    function selectCategory(key) {
+      const cat = CATEGORIES.find((c) => c.key === key);
+      tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.key === key)));
+
+      STYLES = cat.styles;
+      N = STYLES.length;
+      active = 0;
+      stage.innerHTML = '';
+      dotsEl.innerHTML = '';
+      cards = [];
+      dots = [];
+
+      const hasStyles = N > 0;
+      carousel.style.display = hasStyles ? 'flex' : 'none';
+      info.style.display = hasStyles ? 'block' : 'none';
+      dotsEl.style.display = hasStyles ? 'flex' : 'none';
+      emptyEl.classList.toggle('show', !hasStyles);
+      if (!hasStyles) return;
+
+      STYLES.forEach((s, i) => {
+        const card = document.createElement('article');
+        card.className = 'car-card';
+        card.dataset.index = i;
+        card.setAttribute('role', 'option');
+        card.innerHTML = `
+          <div class="car-card__frame">
+            <iframe class="car-card__preview" src="${s.key}/index.html" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+          </div>
+          <div class="car-card__sheen"></div>
+          <div class="car-card__badge"><span>${s.name}</span><span>View →</span></div>
+        `;
+        card.addEventListener('click', () => {
+          if (i === active) { window.location.href = `${s.key}/index.html`; }
+          else { goTo(i); }
+        });
+        stage.appendChild(card);
+
+        const dot = document.createElement('button');
+        dot.className = 'car-dot';
+        dot.setAttribute('aria-label', `Show ${s.name}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(dot);
+      });
+
+      cards = [...stage.querySelectorAll('.car-card')];
+      dots  = [...dotsEl.querySelectorAll('.car-dot')];
+      layout();
+    }
+
+    function layout() {
+      if (!N) return;
+      cards.forEach((card, i) => {
+        let offset = i - active;
+        if (offset > N / 2) offset -= N;
+        if (offset < -N / 2) offset += N;
+
+        const abs = Math.abs(offset);
+        const active0 = offset === 0;
+        const x = offset * 210;
+        const rot = offset * -30;
+        const scale = active0 ? 1 : 0.72;
+        const z = -abs * 180;
+        const opacity = abs > 1 ? 0 : (active0 ? 1 : 0.55);
+        const blur = active0 ? 0 : 2.2;
+
+        card.style.transform =
+          `translateX(${x}px) translateZ(${z}px) rotateY(${rot}deg) scale(${scale})`;
+        card.style.opacity = opacity;
+        card.style.filter = `blur(${blur}px)`;
+        card.style.zIndex = 100 - abs;
+        card.style.pointerEvents = abs > 1 ? 'none' : 'auto';
+        card.setAttribute('data-active', String(active0));
+        card.setAttribute('aria-selected', String(active0));
+      });
+
+      dots.forEach((d, i) => d.setAttribute('aria-selected', String(i === active)));
+
+      const s = STYLES[active];
+      info.classList.remove('in');
+      requestAnimationFrame(() => {
+        nameEl.textContent = s.name;
+        descEl.textContent = s.desc;
+        ctaEl.href = `${s.key}/index.html`;
+        carousel.style.setProperty('--glow', s.glow);
+        requestAnimationFrame(() => info.classList.add('in'));
+      });
+    }
+
+    function goTo(i) {
+      if (!N) return;
+      active = ((i % N) + N) % N;
+      layout();
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => goTo(active - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => goTo(active + 1));
+
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(active - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(active + 1); }
+    });
+
+    // swipe / drag support
+    let dragging = false, startX = 0;
+    stage.addEventListener('pointerdown', (e) => { dragging = true; startX = e.clientX; });
+    window.addEventListener('pointerup', (e) => {
+      if (!dragging) return;
+      dragging = false;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 40) goTo(active + (dx < 0 ? 1 : -1));
+    });
+
+    selectCategory(CATEGORIES[0].key);
   </script>
-  <script src="js/shader.js?v=10"></script>
-  <script src="js/main.js?v=12"></script>
 </body>
 </html>
