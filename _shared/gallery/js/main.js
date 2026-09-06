@@ -1,5 +1,5 @@
 /* =====================================================================
-   Shared "Photo Story" engine — scroll reveals, countdown, add-to-
+   Shared "Photo Story" engine - scroll reveals, countdown, add-to-
    calendar, lightbox gallery, and graceful photo-placeholder fallback.
    ===================================================================== */
 (function () {
@@ -9,16 +9,70 @@
   const WEDDING = new Date(CFG.dateISO || '2026-12-06T11:00:00+05:30');
 
   /* ---------- Photo placeholder fallback ----------
-     Every <img> first tries to load a real client photo (e.g. hero.jpg).
-     If that 404s, it falls back once to a real stock photo from the
-     internet (via each img's data-fallback URL) so the page never looks
-     like a plain placeholder; if that also fails (e.g. offline), the
-     styled label shows instead. */
+     Local client photos always take priority. Missing files use curated
+     wedding imagery rather than generic seeded or abstract images. */
+  const fallbackPhotos = {
+    hero: [
+      'https://picsum.photos/seed/wedding-couple-hero/1600/1067',
+    ],
+    story: [
+      'https://picsum.photos/seed/wedding-couple-story-1/900/1100',
+      'https://picsum.photos/seed/wedding-couple-proposal/900/1100',
+      'https://picsum.photos/seed/wedding-couple-save-date/900/1100',
+    ],
+    portrait: [
+      'https://picsum.photos/seed/wedding-couple-groom/700/700',
+      'https://picsum.photos/seed/wedding-couple-bride/700/700',
+    ],
+    gallery: [
+      'https://picsum.photos/seed/wedding-couple-gallery-1/1200/750',
+      'https://picsum.photos/seed/wedding-couple-gallery-2/1200/750',
+      'https://picsum.photos/seed/wedding-couple-ceremony-1/1200/750',
+      'https://picsum.photos/seed/wedding-couple-ceremony-2/1200/750',
+      'https://picsum.photos/seed/wedding-couple-reception/1200/750',
+      'https://picsum.photos/seed/wedding-couple-forever/1200/750',
+    ],
+  };
+
+  const curatedFallbackPhotos = {
+    hero: ['https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=85'],
+    story: [
+      'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=85',
+      'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85',
+      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85',
+    ],
+    portrait: [
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=85',
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=85',
+    ],
+    gallery: ['https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85'],
+  };
+
+  const galleryImages = [...document.querySelectorAll('.photo img')];
   document.querySelectorAll('.photo img').forEach((img) => {
+    const type = img.closest('.hero__photo') ? 'hero'
+      : img.closest('.person__photo') ? 'portrait'
+      : img.closest('.story-card') ? 'story'
+      : 'gallery';
+    const typeImages = fallbackPhotos[type];
+    const curatedImages = curatedFallbackPhotos[type];
+    const typeIndex = galleryImages.filter((candidate) => {
+      const parent = candidate.closest('.hero__photo') ? 'hero'
+        : candidate.closest('.person__photo') ? 'portrait'
+        : candidate.closest('.story-card') ? 'story'
+        : 'gallery';
+      return parent === type;
+    }).indexOf(img);
+    const primaryFallback = typeImages[typeIndex % typeImages.length];
+    const curatedFallback = curatedImages[typeIndex % curatedImages.length];
+
     img.addEventListener('error', () => {
-      if (img.dataset.fallback && !img.dataset.fallbackTried) {
+      if (primaryFallback && !img.dataset.fallbackTried) {
         img.dataset.fallbackTried = '1';
-        img.src = img.dataset.fallback;
+        img.src = primaryFallback;
+      } else if (curatedFallback && !img.dataset.curatedFallbackTried) {
+        img.dataset.curatedFallbackTried = '1';
+        img.src = curatedFallback;
       } else {
         img.remove();
       }

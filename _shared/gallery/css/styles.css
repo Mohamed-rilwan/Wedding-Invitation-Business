@@ -1,8 +1,8 @@
 /* =====================================================================
-   Shared "Photo Story" format — a photo-first template: full-bleed hero
+   Shared "Photo Story" format - a photo-first template: full-bleed hero
    photo, an "Our Story" photo timeline, a lightbox gallery grid, and
    circular couple portraits. Drop client photos into each template's
-   own /photos folder — filenames are documented inline in the HTML.
+   own /photos folder - filenames are documented inline in the HTML.
    Palette swaps via [data-theme]: charcoal (default) · crimson · ivory
    ===================================================================== */
 
@@ -27,7 +27,7 @@
   --gold-soft:#f0ab7a;
 }
 
-/* ---- Ivory (Christian gallery — light backdrop) ---- */
+/* ---- Ivory (Christian gallery - light backdrop) ---- */
 :root[data-theme="ivory"]{
   --bg:#f7f1e6;
   --card:#ffffff;
@@ -81,7 +81,7 @@ body{
 .hero-kicker{font-family:var(--marc);letter-spacing:.4em;text-transform:uppercase;font-size:.74rem;
   color:var(--gold-soft)}
 .hero-names{font-family:var(--display);font-weight:700;font-size:clamp(2.8rem,9vw,5.6rem);
-  line-height:1.05;margin:.7rem 0;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.5)}
+  line-height:1.15;margin:.7rem 0;padding:.08em 0 .14em;overflow:visible;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.5)}
 .hero-names em{font-style:normal;color:var(--gold-soft)}
 .hero-tag{font-style:italic;font-size:clamp(1rem,2.4vw,1.25rem);color:#f0ece0;opacity:.9}
 .hero-date{margin-top:1.4rem;display:inline-flex;gap:clamp(1rem,4vw,2.2rem);align-items:center;

@@ -1,13 +1,13 @@
 /* =====================================================================
    Flowing WebGL gradient backdrop
-   Inspired by Liam Egan (shubniggurath) — domain-warped fbm noise.
+   Inspired by Liam Egan (shubniggurath) - domain-warped fbm noise.
    Pure WebGL1, no dependencies. Blue ⇄ green themes, pointer-reactive.
    ===================================================================== */
 (function () {
   const canvas = document.getElementById('gl');
   const gl = canvas.getContext('webgl', { antialias: true, alpha: false, powerPreference: 'high-performance' });
 
-  // Painted CSS gradient whenever the shader can't run — never a flat, dull canvas.
+  // Painted CSS gradient whenever the shader can't run - never a flat, dull canvas.
   function paintFallback() {
     const theme = document.documentElement.getAttribute('data-theme');
     const gradients = {
@@ -29,7 +29,7 @@
     void main(){ gl_Position = vec4(p, 0.0, 1.0); }
   `;
 
-  // some mobile GPUs have no highp in fragment shaders — asking for it kills the compile
+  // some mobile GPUs have no highp in fragment shaders - asking for it kills the compile
   const hp = gl.getShaderPrecisionFormat &&
              gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT);
   const PRECISION = (hp && hp.precision > 0) ? 'highp' : 'mediump';
@@ -89,7 +89,7 @@
       float t = u_time * 0.06;
       vec2 m  = (u_mouse - 0.5) * 0.6;
 
-      // domain warping — the silky, liquid movement
+      // domain warping - the silky, liquid movement
       vec2 q = vec2(fbm(p*1.6 + t + m), fbm(p*1.6 - t*0.8 - m));
       vec2 r = vec2(fbm(p*1.6 + 1.7*q + vec2(1.7,9.2) + 0.15*t),
                     fbm(p*1.6 + 1.7*q + vec2(8.3,2.8) - 0.12*t));
@@ -130,7 +130,7 @@
       vec3 mLite  = vec3(0.847,0.698,0.353);
       vec3 mLiteS = vec3(0.906,0.804,0.576);
 
-      // u_theme picks the whole palette outright — these styles never blend live
+      // u_theme picks the whole palette outright - these styles never blend live
       float isRose = step(0.5, u_theme) * step(u_theme, 1.5);
       float isMid  = step(1.5, u_theme);
       cDeep  = mix(mix(cDeep,  rDeep,  isRose), mDeep,  isMid);
@@ -198,7 +198,7 @@
   const uGreen = gl.getUniformLocation(prog, 'u_green');
   const uTheme = gl.getUniformLocation(prog, 'u_theme');
 
-  // 0 = blue/green mix, 1 = rosegold, 2 = midnight — matches the CSS data-theme values
+  // 0 = blue/green mix, 1 = rosegold, 2 = midnight - matches the CSS data-theme values
   function themeIndex() {
     const t = document.documentElement.getAttribute('data-theme');
     if (t === 'rosegold') return 1;

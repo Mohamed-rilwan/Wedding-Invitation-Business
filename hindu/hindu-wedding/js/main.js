@@ -1,5 +1,5 @@
 /* =====================================================================
-   Hindu Traditional template — preloader, reveals, countdown, nav,
+   Hindu Traditional template - preloader, reveals, countdown, nav,
    marigold petals, card tilt, add-to-calendar, ambient tone.
    ===================================================================== */
 (function () {

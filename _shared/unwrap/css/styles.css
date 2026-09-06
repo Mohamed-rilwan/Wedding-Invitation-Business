@@ -1,5 +1,5 @@
 /* =====================================================================
-   Shared "Untie the Bow" overlay — a ribbon-wrapped cover the visitor
+   Shared "Untie the Bow" overlay - a ribbon-wrapped cover the visitor
    must untie to reveal the invitation underneath. Pairs with the
    Photo Story ("gallery") stylesheet/engine for the revealed content,
    reusing its --bg/--card-rgb/--gold/etc. theme variables.
@@ -15,7 +15,7 @@
 }
 .wrap-stage.opened{opacity:0;transform:scale(1.08);pointer-events:none;visibility:hidden}
 
-/* floating flower petals — drift over the cover and the revealed page alike */
+/* floating flower petals - drift over the cover and the revealed page alike */
 .petals{position:fixed;inset:0;z-index:92;pointer-events:none;overflow:hidden}
 .petal{position:absolute;top:-6%;color:var(--gold);opacity:.6;animation:petalFall linear infinite;will-change:transform}
 .petal svg{display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}

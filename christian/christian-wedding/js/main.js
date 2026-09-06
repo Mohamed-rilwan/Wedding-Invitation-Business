@@ -1,5 +1,5 @@
 /* =====================================================================
-   Christian Traditional template — preloader, reveals, countdown, nav,
+   Christian Traditional template - preloader, reveals, countdown, nav,
    rose petals, card tilt, add-to-calendar, ambient tone.
    ===================================================================== */
 (function () {

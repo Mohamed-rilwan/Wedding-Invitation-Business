@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Choose Your Wedding Invitation Style · Digital Wedding Templates</title>
-  <meta name="description" content="Preview our digital wedding invitation styles — Royal Blue, Emerald &amp; Gold, Rose Gold Blush, Midnight Plum, Hindu Traditional, and Christian Traditional — and pick the one you love." />
+  <meta name="description" content="Preview our digital wedding invitation styles - Royal Blue, Emerald &amp; Gold, Rose Gold Blush, Midnight Plum, Hindu Traditional, and Christian Traditional - and pick the one you love." />
   <meta name="robots" content="noindex" />
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700&family=Marcellus&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#07080b; --card:#12151c; --ink:#f4ecd8; --dim:#9b9891;
+      --bg:#131922; --card:#181d28; --ink:#f4ecd8; --dim:#b5b0a6;
       --gold:#d8b25a; --gold-soft:#e7cd93;
       --glow: 216,178,90;
     }
@@ -18,19 +18,19 @@
     body{
       background-color:var(--bg);
       background-image:
-        radial-gradient(60% 50% at 18% 8%, rgba(var(--glow),.14), transparent 60%),
-        radial-gradient(50% 45% at 85% 12%, rgba(120,80,220,.12), transparent 60%),
-        radial-gradient(120% 100% at 50% 0%,#14161f,var(--bg) 60%);
+        radial-gradient(60% 50% at 18% 8%, rgba(var(--glow),.22), transparent 60%),
+        radial-gradient(50% 45% at 85% 12%, rgba(154,118,255,.18), transparent 60%),
+        radial-gradient(120% 100% at 50% 0%,#1b212d,var(--bg) 62%);
       background-repeat:no-repeat;
       color:var(--ink); font-family:"Cormorant Garamond",serif; min-height:100vh;
       padding:clamp(2.2rem,6vw,5rem) 1.25rem clamp(3rem,8vw,6rem);
       overflow-x:hidden;
     }
     header{text-align:center;max-width:720px;margin:0 auto clamp(2.2rem,5vw,3rem)}
-    .kicker{font-family:"Marcellus",serif;letter-spacing:.4em;text-transform:uppercase;
-      font-size:.7rem;color:var(--gold)}
-    h1{font-family:"Big Shoulders Display",sans-serif;font-weight:700;font-size:clamp(2.2rem,5.6vw,3.6rem);
-      margin:.6rem 0 .8rem;line-height:1.1;letter-spacing:-.01em}
+    .kicker{font-family:"Big Shoulders Display",sans-serif;letter-spacing:.14em;text-transform:uppercase;
+      font-size:clamp(2.8rem,8vw,5.4rem);line-height:.95;color:var(--gold);display:block;font-weight:700}
+    h1{font-family:"Marcellus",serif;font-weight:400;font-size:clamp(.9rem,2vw,1.4rem);
+      margin:.9rem 0 0;line-height:1.3;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
     header p{font-size:1.15rem;color:var(--dim);max-width:56ch;margin-inline:auto}
 
     /* ===================== CAROUSEL ===================== */
@@ -45,23 +45,37 @@
     }
     .car-card{
       position:absolute;width:min(58vw,300px);height:min(90%,380px);
-      border-radius:26px;overflow:hidden;cursor:pointer;
-      background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(0,0,0,.35)), var(--card);
-      border:1px solid rgba(216,178,90,.22);
-      box-shadow:0 30px 60px -20px rgba(0,0,0,.65), 0 0 0 1px rgba(0,0,0,.2) inset;
+      border-radius:30px;overflow:hidden;cursor:pointer;
+      background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(0,0,0,.20)), var(--card);
+      border:1px solid rgba(216,178,90,.16);
+      box-shadow:0 24px 60px -30px rgba(0,0,0,.78), 0 0 0 1px rgba(255,255,255,.02) inset;
       transition:transform .65s cubic-bezier(.19,1,.22,1),
                  opacity .65s cubic-bezier(.19,1,.22,1),
                  filter .65s cubic-bezier(.19,1,.22,1);
       will-change:transform,opacity,filter;
     }
     .car-card[data-active="true"]{ box-shadow:0 40px 80px -20px rgba(0,0,0,.75), 0 0 60px -10px rgba(var(--glow),.35); }
-    .car-card__frame{position:absolute;inset:0;border-radius:inherit;overflow:hidden;background:#000}
+    .car-card__frame{position:absolute;inset:0;border-radius:inherit;overflow:hidden;background:
+      linear-gradient(135deg, rgba(216,178,90,.16), rgba(18,21,28,.9));}
     .car-card__preview{
-      position:absolute;top:0;left:0;width:400%;height:400%;
-      transform:scale(.25);transform-origin:0 0;border:0;pointer-events:none;
+      position:absolute;inset:0;border:0;pointer-events:none;
+      background:
+        radial-gradient(circle at top left, rgba(216,178,90,.45), transparent 32%),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(0,0,0,.15)),
+        #0f1219;
+    }
+    .car-card__preview::before{
+      content:"";position:absolute;inset:14% 18% 20% 18%;border-radius:18px;
+      border:1px solid rgba(216,178,90,.4);background:rgba(255,255,255,.04);
+      box-shadow:inset 0 0 30px rgba(216,178,90,.08);
+    }
+    .car-card__preview::after{
+      content:"Wedding";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      font-family:"Marcellus",serif;letter-spacing:.18em;text-transform:uppercase;
+      font-size:.64rem;color:var(--gold-soft);white-space:nowrap;
     }
     .car-card__sheen{position:absolute;inset:0;pointer-events:none;border-radius:inherit;
-      background:linear-gradient(160deg,rgba(255,255,255,.14),transparent 45%);
+      background:linear-gradient(160deg,rgba(255,255,255,.12),transparent 45%);
       mix-blend-mode:screen;}
     .car-card__badge{
       position:absolute;left:.9rem;bottom:.9rem;right:.9rem;
@@ -72,6 +86,12 @@
       opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease;
     }
     .car-card[data-active="true"] .car-card__badge{opacity:1;transform:none}
+    .car-card__profile{position:absolute;left:.9rem;right:.9rem;bottom:4rem;padding:.55rem .7rem;
+      border-radius:14px;background:rgba(5,6,10,.62);backdrop-filter:blur(6px);
+      color:var(--ink);font-size:.82rem;line-height:1.25;text-align:center;
+      border:1px solid rgba(216,178,90,.14)}
+    .car-card__profile strong{display:block;color:var(--gold-soft);font-family:"Marcellus",serif;font-size:.78rem}
+    .car-card__profile span{display:block;color:var(--dim);font-size:.7rem;margin-top:.15rem}
 
     .car-nav{
       flex:0 0 auto;width:52px;height:52px;border-radius:50%;
@@ -141,9 +161,9 @@
 
     .sales-points{max-width:1100px;margin:clamp(2rem,5vw,3.2rem) auto 0;display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
-    .sales-card{background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(0,0,0,.18));
-      border:1px solid rgba(216,178,90,.2);border-radius:22px;padding:1.4rem 1.2rem;
-      text-align:left;box-shadow:0 18px 40px -24px rgba(0,0,0,.85);}
+    .sales-card{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(0,0,0,.14));
+      border:1px solid rgba(216,178,90,.12);border-radius:28px;padding:1.5rem 1.3rem;
+      text-align:left;box-shadow:0 18px 44px -28px rgba(0,0,0,.9);}
     .sales-card__icon{font-size:1.4rem;color:var(--gold-soft);margin-bottom:.6rem}
     .sales-card h3{font-family:"Big Shoulders Display",sans-serif;font-size:1.7rem;
       letter-spacing:.02em;margin-bottom:.45rem;color:var(--ink)}
@@ -156,9 +176,9 @@
     .story-cta__content,
     .story-cta__card,
     .palette-builder{
-      background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(0,0,0,.16));
-      border:1px solid rgba(216,178,90,.2);border-radius:26px;padding:clamp(1.3rem,3vw,2.2rem);
-      box-shadow:0 18px 40px -24px rgba(0,0,0,.85);
+      background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(0,0,0,.14));
+      border:1px solid rgba(216,178,90,.12);border-radius:30px;padding:clamp(1.3rem,3vw,2.2rem);
+      box-shadow:0 18px 50px -28px rgba(0,0,0,.82);
     }
     .story-cta__content h2,
     .palette-builder h2{font-family:"Big Shoulders Display",sans-serif;font-weight:700;
@@ -185,12 +205,23 @@
       width:100%;min-height:190px;resize:vertical;border-radius:18px;border:1px solid rgba(216,178,90,.25);
       background:rgba(7,8,11,.45);color:var(--ink);padding:1rem 1rem;font:inherit;line-height:1.6;
     }
+      .personalize-form{display:grid;gap:.8rem}
+      .personalize-form__row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+      .personalize-form label{display:grid;gap:.35rem;color:var(--gold-soft);font-family:"Marcellus",serif;
+        font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+      .personalize-form input,.personalize-form textarea{width:100%;border:1px solid rgba(216,178,90,.22);
+        border-radius:14px;background:rgba(7,8,11,.42);color:var(--ink);padding:.75rem .85rem;font:inherit;font-size:1rem}
+      .personalize-form input{min-height:46px}
+      .personalize-form textarea{min-height:135px;resize:vertical;line-height:1.55}
+      .personalize-form input:focus,.personalize-form textarea:focus{outline:2px solid rgba(var(--glow),.7);outline-offset:2px}
+      .personalize-form__status{min-height:1.3em;color:var(--dim);font-size:.92rem}
+      @media (max-width:640px){.personalize-form__row{grid-template-columns:1fr}}
     .story-cta__card textarea:focus{outline:2px solid rgba(var(--glow),.7);outline-offset:2px}
 
-    .palette-builder{margin-top:clamp(2rem,5vw,3.5rem)}
+    .palette-builder{margin-top:1.2rem;opacity:.92}
     .palette-builder__wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem;align-items:stretch}
-    .palette-swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem;margin-top:1rem}
-    .swatch{position:relative;min-height:118px;border-radius:18px;border:1px solid rgba(255,255,255,.08);overflow:hidden;background:var(--swatch-color);}
+    .palette-swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem;margin-top:.9rem}
+    .swatch{position:relative;min-height:118px;border-radius:20px;border:1px solid rgba(255,255,255,.06);overflow:hidden;background:var(--swatch-color);}
     .swatch::after{content:attr(data-label);position:absolute;left:.7rem;bottom:.7rem;right:.7rem;
       font-family:"Marcellus",serif;letter-spacing:.08em;text-transform:uppercase;font-size:.58rem;
       color:rgba(255,255,255,.92);text-shadow:0 2px 10px rgba(0,0,0,.3)}
@@ -198,10 +229,10 @@
     .palette-actions button{background:rgba(255,255,255,.03);color:var(--gold-soft);border:1px solid rgba(216,178,90,.25)}
     .palette-actions button.primary{background:linear-gradient(120deg,var(--gold-soft),var(--gold));color:#0b0d12;border:none}
     .palette-preview{display:flex;align-items:stretch;justify-content:center}
-    .palette-preview__mock{width:100%;min-height:260px;border-radius:22px;border:1px solid rgba(216,178,90,.15);
+    .palette-preview__mock{width:100%;min-height:260px;border-radius:26px;border:1px solid rgba(216,178,90,.12);
       background:linear-gradient(135deg, var(--preview-1), var(--preview-2));padding:1rem;display:flex;align-items:flex-end}
-    .palette-preview__card{width:100%;background:rgba(12,14,18,.38);backdrop-filter:blur(12px);
-      border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:1rem;color:var(--ink);box-shadow:0 18px 36px -26px rgba(0,0,0,.75)}
+    .palette-preview__card{width:100%;background:rgba(12,14,18,.34);backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:1rem;color:var(--ink);box-shadow:0 18px 36px -26px rgba(0,0,0,.7)}
     .palette-preview__eyebrow{font-family:"Marcellus",serif;letter-spacing:.2em;text-transform:uppercase;
       font-size:.62rem;color:var(--preview-3)}
     .palette-preview__name{font-family:"Big Shoulders Display",sans-serif;font-size:2rem;line-height:1.1;margin:.6rem 0}
@@ -220,12 +251,34 @@
 </head>
 <body>
   <header>
-    <span class="kicker">Digital Wedding Invitations</span>
-    <h1>Choose Your Invitation Style</h1>
-    <p>Every style is a fully working preview — spin through them, then tap through to
-       explore the countdown, calendar, and venue map. We'll personalise the one you love
-       with your names, dates, and photos.</p>
+    <span class="kicker">WedStory</span>
+    <h1>Digital Wedding Invitations</h1>
   </header>
+
+  <section class="story-cta" aria-label="Share your story and we will create a custom site">
+    <div class="story-cta__content">
+      <span class="kicker">Your story deserves a beautiful beginning</span>
+      <h2>We design wedding websites that feel like your life, not just another template.</h2>
+      <p>Every love story is different - the quiet looks, the little rituals, the people who shaped your journey, the memories that made you who you are. Share your story with us, and we will create a wedding invitation experience that reflects your personality, your values, and your forever.</p>
+      <p class="story-cta__quote">“Love is not just a chapter - it is a story told in moments, memories, and the people who make your world feel like home.”</p>
+      <div class="story-cta__actions">
+        <button class="story-cta__button" type="button">Share your story</button>
+        <button class="story-cta__button story-cta__button--ghost" type="button">Start a custom design</button>
+      </div>
+    </div>
+    <div class="story-cta__card">
+      <form class="personalize-form" id="personalizeForm">
+        <div class="personalize-form__row">
+          <label for="groomName">Groom name<input id="groomName" name="groom" autocomplete="given-name" required></label>
+          <label for="brideName">Bride name<input id="brideName" name="bride" autocomplete="given-name" required></label>
+        </div>
+        <label for="weddingDate">Wedding date<input id="weddingDate" name="date" type="date" required></label>
+        <label for="storyInput">Your story<textarea id="storyInput" name="story" placeholder="Tell us how you met, what makes your journey special, and how you want your celebration to feel."></textarea></label>
+        <button class="story-cta__button" type="submit">Save my story</button>
+        <p class="personalize-form__status" id="personalizeStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
 
   <section class="sales-points" aria-label="Why couples choose our wedding websites">
     <article class="sales-card">
@@ -245,22 +298,21 @@
     </article>
   </section>
 
-  <section class="story-cta" aria-label="Share your story and we will create a custom site">
-    <div class="story-cta__content">
-      <span class="kicker">Your story deserves a beautiful beginning</span>
-      <h2>We design wedding websites that feel like your life, not just another template.</h2>
-      <p>Every love story is different — the quiet looks, the little rituals, the people who shaped your journey, the memories that made you who you are. Share your story with us, and we will create a wedding invitation experience that reflects your personality, your values, and your forever.</p>
-      <p class="story-cta__quote">“Love is not just a chapter — it is a story told in moments, memories, and the people who make your world feel like home.”</p>
-      <div class="story-cta__actions">
-        <button class="story-cta__button" type="button">Share your story</button>
-        <button class="story-cta__button story-cta__button--ghost" type="button">Start a custom design</button>
-      </div>
-    </div>
-    <div class="story-cta__card">
-      <label class="story-cta__label" for="storyInput">Tell us about your journey</label>
-      <textarea id="storyInput" placeholder="We met in the quietest moment of our lives... we always knew we wanted a celebration that felt like us, full of warmth, faith, family, and joy.">We met in the quietest moment of our lives... we always knew we wanted a celebration that felt like us, full of warmth, faith, family, and joy.</textarea>
-    </div>
-  </section>
+  <div class="cat-tabs" id="catTabs" role="tablist" aria-label="Wedding tradition"></div>
+
+  <div class="carousel" id="carousel" tabindex="0" aria-roledescription="carousel" aria-label="Invitation styles">
+    <button class="car-nav car-nav--prev" id="prevBtn" aria-label="Previous style">‹</button>
+    <div class="car-stage" id="stage" role="listbox" aria-label="Choose an invitation style"></div>
+    <button class="car-nav car-nav--next" id="nextBtn" aria-label="Next style">›</button>
+  </div>
+
+  <div class="car-info" id="carInfo">
+    <h2 class="car-info__name" id="carName"></h2>
+    <p class="car-info__desc" id="carDesc"></p>
+    <a class="car-cta" id="carCta" href="#">Preview this style →</a>
+  </div>
+
+  <div class="car-dots" id="carDots"></div>
 
   <section class="palette-builder" aria-label="Palette generator">
     <div class="palette-builder__wrap">
@@ -286,22 +338,6 @@
     </div>
   </section>
 
-  <div class="cat-tabs" id="catTabs" role="tablist" aria-label="Wedding tradition"></div>
-
-  <div class="carousel" id="carousel" tabindex="0" aria-roledescription="carousel" aria-label="Invitation styles">
-    <button class="car-nav car-nav--prev" id="prevBtn" aria-label="Previous style">‹</button>
-    <div class="car-stage" id="stage" role="listbox" aria-label="Choose an invitation style"></div>
-    <button class="car-nav car-nav--next" id="nextBtn" aria-label="Next style">›</button>
-  </div>
-
-  <div class="car-info" id="carInfo">
-    <h2 class="car-info__name" id="carName"></h2>
-    <p class="car-info__desc" id="carDesc"></p>
-    <a class="car-cta" id="carCta" href="#">Preview this style →</a>
-  </div>
-
-  <div class="car-dots" id="carDots"></div>
-
   <div class="cat-empty" id="catEmpty">
     <div class="cat-empty__ico">✦</div>
     <p class="cat-empty__title">More styles coming soon</p>
@@ -320,33 +356,33 @@
         key: 'muslim', label: 'Muslim · Nikkah', icon: '☾',
         styles: [
           { key:'muslim/royal-blue',    name:'Royal Blue',       desc:"Deep blue & gold, Islamic-luxe, with a live blue ⇄ green colour switch.", glow:'15,127,184' },
-          { key:'muslim/emerald-gold',  name:'Emerald & Gold',    desc:"Rich emerald green with warm gold accents — classic and elegant.",        glow:'28,122,84'  },
-          { key:'muslim/rose-gold',     name:'Rose Gold Blush',   desc:"Soft blush pink with rose gold accents — romantic and modern.",           glow:'168,90,104' },
-          { key:'muslim/midnight-plum', name:'Midnight Plum',     desc:"Deep plum & gold — dramatic, moody, and unforgettable.",                  glow:'92,58,134'  },
-          { key:'muslim/slideshow',     name:'Teal Slideshow',    desc:"A full-screen snap-scroll slideshow format — teal & gold, one bold idea per screen.", glow:'13,59,62' },
+          { key:'muslim/emerald-gold',  name:'Emerald & Gold',    desc:"Rich emerald green with warm gold accents - classic and elegant.",        glow:'28,122,84'  },
+          { key:'muslim/rose-gold',     name:'Rose Gold Blush',   desc:"Soft blush pink with rose gold accents - romantic and modern.",           glow:'168,90,104' },
+          { key:'muslim/midnight-plum', name:'Midnight Plum',     desc:"Deep plum & gold - dramatic, moody, and unforgettable.",                  glow:'92,58,134'  },
+          { key:'muslim/slideshow',     name:'Teal Slideshow',    desc:"A full-screen snap-scroll slideshow format - teal & gold, one bold idea per screen.", glow:'13,59,62' },
           { key:'muslim/parallax',      name:'Nightfall Indigo',  desc:"Cinematic scroll parallax with a line-drawn crescent emblem, magnetic buttons and confetti.", glow:'28,37,112' },
-          { key:'muslim/gallery',       name:'Photo Story',       desc:"Built around your own photos — full-bleed hero photo, a story timeline, and a lightbox gallery.", glow:'216,178,90' },
-          { key:'muslim/unwrap',        name:'Untie the Bow',     desc:"Wrapped in a ribbon and bow — visitors untie it to reveal the invitation inside.", glow:'216,178,90' },
+          { key:'muslim/gallery',       name:'Photo Story',       desc:"Built around your own photos - full-bleed hero photo, a story timeline, and a lightbox gallery.", glow:'216,178,90' },
+          { key:'muslim/unwrap',        name:'Untie the Bow',     desc:"Wrapped in a ribbon and bow - visitors untie it to reveal the invitation inside.", glow:'216,178,90' },
         ],
       },
       {
         key: 'hindu', label: 'Hindu · Vivah', icon: 'ॐ',
         styles: [
           { key:'hindu/hindu-wedding', name:'Hindu Traditional', desc:"Maroon & gold with an animated banana-tree entrance and marigold petals.", glow:'212,175,55' },
-          { key:'hindu/slideshow',     name:'Terracotta Slideshow', desc:"A full-screen snap-scroll slideshow format — terracotta & gold, one bold idea per screen.", glow:'90,38,18' },
+          { key:'hindu/slideshow',     name:'Terracotta Slideshow', desc:"A full-screen snap-scroll slideshow format - terracotta & gold, one bold idea per screen.", glow:'90,38,18' },
           { key:'hindu/parallax',      name:'Saffron Flame',        desc:"Cinematic scroll parallax with a line-drawn Om emblem, magnetic buttons and confetti.", glow:'168,56,15' },
-          { key:'hindu/gallery',       name:'Photo Story',          desc:"Built around your own photos — full-bleed hero photo, a story timeline, and a lightbox gallery.", glow:'224,121,58' },
-          { key:'hindu/unwrap',        name:'Untie the Bow',        desc:"Wrapped in a ribbon and bow — visitors untie it to reveal the invitation inside.", glow:'224,121,58' },
+          { key:'hindu/gallery',       name:'Photo Story',          desc:"Built around your own photos - full-bleed hero photo, a story timeline, and a lightbox gallery.", glow:'224,121,58' },
+          { key:'hindu/unwrap',        name:'Untie the Bow',        desc:"Wrapped in a ribbon and bow - visitors untie it to reveal the invitation inside.", glow:'224,121,58' },
         ],
       },
       {
         key: 'christian', label: 'Christian', icon: '✝',
         styles: [
           { key:'christian/christian-wedding', name:'Christian Traditional', desc:"Ivory & gold with swinging chapel bells, a rose-and-lace garland, and falling petals.", glow:'184,147,62' },
-          { key:'christian/slideshow', name:'Sage Slideshow', desc:"A full-screen snap-scroll slideshow format — sage & ivory, one bold idea per screen.", glow:'63,79,58' },
+          { key:'christian/slideshow', name:'Sage Slideshow', desc:"A full-screen snap-scroll slideshow format - sage & ivory, one bold idea per screen.", glow:'63,79,58' },
           { key:'christian/parallax',  name:'Champagne Blush', desc:"Cinematic scroll parallax with a line-drawn cross emblem, magnetic buttons and confetti.", glow:'201,143,122' },
-          { key:'christian/gallery',   name:'Photo Story',     desc:"Built around your own photos — full-bleed hero photo, a story timeline, and a lightbox gallery.", glow:'184,147,62' },
-          { key:'christian/unwrap',    name:'Untie the Bow',   desc:"Wrapped in a ribbon and bow — visitors untie it to reveal the invitation inside.", glow:'184,147,62' },
+          { key:'christian/gallery',   name:'Photo Story',     desc:"Built around your own photos - full-bleed hero photo, a story timeline, and a lightbox gallery.", glow:'184,147,62' },
+          { key:'christian/unwrap',    name:'Untie the Bow',   desc:"Wrapped in a ribbon and bow - visitors untie it to reveal the invitation inside.", glow:'184,147,62' },
         ],
       },
     ];
@@ -360,6 +396,57 @@
     const descEl  = document.getElementById('carDesc');
     const ctaEl   = document.getElementById('carCta');
     const emptyEl = document.getElementById('catEmpty');
+      const personalizeForm = document.getElementById('personalizeForm');
+      const personalizeStatus = document.getElementById('personalizeStatus');
+      const profileFields = {
+        groom: document.getElementById('groomName'),
+        bride: document.getElementById('brideName'),
+        date: document.getElementById('weddingDate'),
+        story: document.getElementById('storyInput'),
+      };
+      const profileKey = 'wedstory-profile';
+
+      const navigation = performance.getEntriesByType('navigation')[0];
+      if (navigation && navigation.type === 'reload') localStorage.removeItem(profileKey);
+
+      function readProfile() {
+        try { return JSON.parse(localStorage.getItem(profileKey) || '{}'); }
+        catch (error) { return {}; }
+      }
+
+      function saveProfile(event) {
+        event.preventDefault();
+        const profile = Object.fromEntries(Object.entries(profileFields).map(([key, field]) => [key, field.value.trim()]));
+        localStorage.setItem(profileKey, JSON.stringify(profile));
+        updateCardProfiles();
+        personalizeStatus.textContent = 'Saved. Choose a style below to preview your personalised invitation.';
+      }
+
+      const savedProfile = readProfile();
+      Object.entries(profileFields).forEach(([key, field]) => { if (savedProfile[key]) field.value = savedProfile[key]; });
+      personalizeForm.addEventListener('submit', saveProfile);
+
+      function templateUrl(path) {
+        return `${path}/index.html`;
+      }
+
+      function profileLabel() {
+        const profile = readProfile();
+        const names = [profile.groom, profile.bride].filter(Boolean).join(' & ') || 'Add your couple names';
+        const date = profile.date ? new Date(`${profile.date}T12:00:00`) : null;
+        const formattedDate = date && !Number.isNaN(date.getTime())
+          ? date.toLocaleDateString(undefined, { day: '2-digit', month: 'short', year: 'numeric' })
+          : 'Choose your wedding date';
+        return { names, formattedDate };
+      }
+
+      function updateCardProfiles() {
+        const cardProfile = profileLabel();
+        document.querySelectorAll('.car-card__profile').forEach((profileEl) => {
+          profileEl.querySelector('strong').textContent = cardProfile.names;
+          profileEl.querySelector('span').textContent = cardProfile.formattedDate;
+        });
+      }
 
     let STYLES = [];
     let N = 0;
@@ -404,13 +491,20 @@
         card.setAttribute('role', 'option');
         card.innerHTML = `
           <div class="car-card__frame">
-            <iframe class="car-card__preview" src="${s.key}/index.html" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+            <div class="car-card__preview" aria-hidden="true" style="background:
+              radial-gradient(circle at top left, rgba(216,178,90,.38), transparent 30%),
+              linear-gradient(160deg, rgba(255,255,255,.08), rgba(0,0,0,.18)),
+              rgb(${s.glow});"></div>
           </div>
           <div class="car-card__sheen"></div>
+          <div class="car-card__profile"><strong></strong><span></span></div>
           <div class="car-card__badge"><span>${s.name}</span><span>View →</span></div>
         `;
+        const cardProfile = profileLabel();
+        card.querySelector('.car-card__profile strong').textContent = cardProfile.names;
+        card.querySelector('.car-card__profile span').textContent = cardProfile.formattedDate;
         card.addEventListener('click', () => {
-          if (i === active) { window.location.href = `${s.key}/index.html`; }
+          if (i === active) { window.location.href = templateUrl(s.key); }
           else { goTo(i); }
         });
         stage.appendChild(card);
@@ -460,7 +554,7 @@
       requestAnimationFrame(() => {
         nameEl.textContent = s.name;
         descEl.textContent = s.desc;
-        ctaEl.href = `${s.key}/index.html`;
+        ctaEl.href = templateUrl(s.key);
         carousel.style.setProperty('--glow', s.glow);
         requestAnimationFrame(() => info.classList.add('in'));
       });

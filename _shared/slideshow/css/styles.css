@@ -1,5 +1,5 @@
 /* =====================================================================
-   Shared "Slideshow" format — full-viewport snap-scroll slides
+   Shared "Slideshow" format - full-viewport snap-scroll slides
    Used by the Muslim / Hindu / Christian slideshow template variants.
    Palette swaps via [data-theme]: teal (default) · terracotta · sage
    ===================================================================== */
@@ -104,8 +104,8 @@ body{
   display:inline-block;animation:emblemFloat 4.5s ease-in-out infinite}
 @keyframes emblemFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
 
-.slide-names{font-family:var(--display);font-size:clamp(2.6rem,8vw,5rem);line-height:1.05;
-  margin:.6rem 0;color:var(--ink)}
+.slide-names{font-family:var(--display);font-size:clamp(2.6rem,8vw,5rem);line-height:1.15;
+  margin:.6rem 0;padding:.08em 0 .14em;overflow:visible;color:var(--ink)}
 .slide-names em{font-style:normal;color:var(--gold);display:block;font-size:.5em;letter-spacing:.3em;
   text-transform:uppercase;margin:.4em 0}
 .slide-tag{font-style:italic;font-size:clamp(1rem,2.4vw,1.3rem);color:var(--ink-dim);margin-top:.8rem}

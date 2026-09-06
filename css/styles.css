@@ -1,5 +1,5 @@
 /* =====================================================================
-   Rilwan & Kashifa — Nikkah Invitation
+   Rilwan & Kashifa - Nikkah Invitation
    Islamic-luxe theme · emerald, gold, cream · flowing WebGL backdrop
    ===================================================================== */
 
@@ -172,12 +172,12 @@ body::after{
 .ornament .line:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
 .ornament__moon{width:26px;height:26px;fill:var(--gold);filter:drop-shadow(0 0 8px rgba(216,178,90,.5))}
 
-.couple-names{font-weight:400;line-height:.9;letter-spacing:.01em;
-  display:flex;flex-direction:column;align-items:center;gap:.1rem;margin:.4rem 0}
+.couple-names{font-weight:400;line-height:1.08;letter-spacing:.01em;
+  display:flex;flex-direction:column;align-items:center;gap:.1rem;margin:.4rem 0;padding:.12em 0 .18em;overflow:visible}
 .cn{font-family:var(--script);font-size:clamp(3.4rem,13vw,7.6rem);
   background:linear-gradient(180deg,var(--gold-soft),var(--gold),var(--gold-deep));
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 6px 22px rgba(0,0,0,.5))}
+  filter:drop-shadow(0 6px 22px rgba(0,0,0,.5));line-height:1.08}
 .cn--amp{font-size:clamp(1.7rem,5.5vw,2.7rem);color:var(--cream);
   -webkit-text-fill-color:var(--cream);background:none;line-height:1;margin:-.4rem 0}
 .hero__tag{font-family:var(--serif);font-style:italic;font-size:clamp(.95rem,2.2vw,1.2rem);

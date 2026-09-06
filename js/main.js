@@ -1,5 +1,5 @@
 /* =====================================================================
-   Interaction layer — preloader, reveals, countdown, nav, petals,
+   Interaction layer - preloader, reveals, countdown, nav, petals,
    card tilt, add-to-calendar, ambient tone.
    ===================================================================== */
 (function () {
@@ -195,7 +195,7 @@
 
     if (wanted) {
       startAmbience().catch(() => {
-        // phones always block sound until the visitor interacts — wait for a gesture
+        // phones always block sound until the visitor interacts - wait for a gesture
         muteBtn.classList.add('mute-toggle--waiting');
         const kick = (e) => {
           if (e.target && e.target.closest && e.target.closest('#muteToggle')) return;

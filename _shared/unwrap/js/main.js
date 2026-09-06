@@ -1,5 +1,5 @@
 /* =====================================================================
-   Shared "Untie the Bow" engine — clicking/tapping (or pressing Enter/
+   Shared "Untie the Bow" engine - clicking/tapping (or pressing Enter/
    Space on) the bow untie the ribbon, bursts a little confetti, then
    fades the cover away to reveal the invitation underneath.
    ===================================================================== */

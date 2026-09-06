@@ -1,5 +1,5 @@
 /* =====================================================================
-   Shared "Slideshow" engine — active-slide tracking, countdown,
+   Shared "Slideshow" engine - active-slide tracking, countdown,
    add-to-calendar. Content and palette are supplied per template.
    ===================================================================== */
 (function () {

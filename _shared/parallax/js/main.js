@@ -1,5 +1,5 @@
 /* =====================================================================
-   Shared "Cinematic Parallax" engine — layered scroll parallax, reveal,
+   Shared "Cinematic Parallax" engine - layered scroll parallax, reveal,
    line-draw emblem, count-up countdown, magnetic buttons/cards, confetti.
    Content and palette are supplied per template.
    ===================================================================== */

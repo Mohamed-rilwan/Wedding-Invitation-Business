@@ -1,5 +1,5 @@
 /* =====================================================================
-   Christian Traditional — Holy Matrimony Invitation
+   Christian Traditional - Holy Matrimony Invitation
    Ivory, gold &amp; dusty rose · swinging chapel bells, rose petals, lace garland
    ===================================================================== */
 
@@ -170,12 +170,12 @@ body::after{
 .ornament__rings{width:26px;height:26px;fill:none;stroke:var(--gold);stroke-width:1.4;
   filter:drop-shadow(0 0 6px rgba(184,147,62,.4))}
 
-.couple-names{font-weight:400;line-height:1;letter-spacing:.01em;
-  display:flex;flex-direction:column;align-items:center;gap:.1rem;margin:.4rem 0}
+.couple-names{font-weight:400;line-height:1.08;letter-spacing:.01em;
+  display:flex;flex-direction:column;align-items:center;gap:.1rem;margin:.4rem 0;padding:.12em 0 .18em;overflow:visible}
 .cn{font-family:var(--script);font-size:clamp(3.6rem,13vw,7.4rem);
   background:linear-gradient(180deg,var(--gold-deep),var(--gold),var(--rose));
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 4px 14px rgba(90,66,30,.25))}
+  filter:drop-shadow(0 4px 14px rgba(90,66,30,.25));line-height:1.08}
 .cn--amp{font-family:var(--display);font-size:clamp(1rem,3vw,1.4rem);color:var(--ink-dim);
   -webkit-text-fill-color:var(--ink-dim);background:none;letter-spacing:.5em;text-transform:uppercase;margin:.1rem 0}
 .hero__tag{font-family:var(--serif);font-style:italic;font-size:clamp(.95rem,2.2vw,1.2rem);
