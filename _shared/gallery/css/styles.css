@@ -62,18 +62,13 @@ body{
 [data-reveal]{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 [data-reveal].in{opacity:1;transform:none}
 
-/* ---------- Every photo frame: real <img> on top, placeholder label
-   underneath. If the img 404s, main.js removes it, revealing the label
-   so the layout always looks intentional even before real photos land. ---------- */
+/* ---------- Photo frames ---------- */
 .photo{
   position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(var(--card-rgb),.9),rgba(var(--card-rgb),.6));
   border:1px solid rgba(216,178,90,.25);
 }
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.photo__placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:.4rem;color:var(--gold-soft);opacity:.7;text-align:center;padding:1rem}
-.photo__placeholder b{font-size:1.6rem}
-.photo__placeholder span{font-family:var(--marc);font-size:.6rem;letter-spacing:.08em;color:var(--ink-dim)}
+.photo__placeholder{display:none}
 
 /* ---------- Hero: full-bleed photo ---------- */
 .hero{min-height:100svh;display:grid;place-items:center;padding:0}
@@ -112,7 +107,8 @@ body{
 .couple-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(1rem,3vw,2rem);margin-top:3rem}
 .person{text-align:center}
 .person__photo{width:clamp(120px,20vw,170px);height:clamp(120px,20vw,170px);border-radius:50%;margin:0 auto 1.2rem;
-  box-shadow:var(--shadow);border:3px solid rgba(216,178,90,.4)}
+  box-shadow:var(--shadow);border:3px solid rgba(216,178,90,.4);overflow:hidden;object-fit:cover;background:linear-gradient(160deg,rgba(var(--card-rgb),.9),rgba(var(--card-rgb),.6))}
+.person__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}
 .person__photo.photo{border-radius:50%}
 .person__role{font-family:var(--marc);letter-spacing:.35em;text-transform:uppercase;font-size:.7rem;color:var(--gold)}
 .person__name{font-family:var(--display);font-size:clamp(1.4rem,3.2vw,1.9rem);color:var(--ink);margin:.4rem 0 .6rem}
@@ -128,8 +124,13 @@ body{
 .gallery-carousel__viewport{position:relative;flex:1;min-width:0;border-radius:22px;overflow:hidden;
   box-shadow:var(--shadow);aspect-ratio:16/10;background:rgba(var(--card-rgb),.6)}
 .gallery-carousel__track{display:flex;height:100%;transition:transform .6s var(--ease);will-change:transform}
-.gallery-carousel__slide{flex:0 0 100%;height:100%;position:relative}
-.gallery-carousel__slide .photo{position:absolute;inset:0;border:0;border-radius:0;cursor:zoom-in}
+.gallery-carousel__slide{flex:0 0 100%;height:100%;position:relative;display:flex;flex-direction:column}
+.gallery-carousel__slide .photo{position:relative;inset:auto;border:0;border-radius:18px 18px 0 0;cursor:zoom-in;width:100%;height:100%;min-height:0;aspect-ratio:16/10}
+.gallery-carousel__slide .photo img{border-radius:18px 18px 0 0}
+.gallery-slide__story{padding:1rem 1.1rem 1.2rem;border-radius:0 0 18px 18px;background:rgba(var(--card-rgb),.9);
+  border:1px solid rgba(216,178,90,.18);border-top:0;color:var(--ink-dim);font-size:.92rem;line-height:1.7}
+.gallery-slide__story strong{display:block;color:var(--ink);font-family:var(--marc);letter-spacing:.12em;text-transform:uppercase;
+  font-size:.68rem;margin-bottom:.28rem}
 .gallery-carousel__nav{flex:0 0 auto;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
   background:rgba(var(--card-rgb),.55);color:var(--gold);border:1px solid rgba(216,178,90,.35);
   cursor:pointer;font-size:1.4rem;line-height:1;backdrop-filter:blur(4px);transition:.3s var(--ease)}

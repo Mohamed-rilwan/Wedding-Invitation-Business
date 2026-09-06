@@ -123,7 +123,6 @@
       border:1px solid rgba(216,178,90,.22);background:rgba(255,255,255,.03);
       transition:.35s cubic-bezier(.19,1,.22,1);
     }
-    .cat-tab__count{font-size:.66rem;opacity:.7}
     .cat-tab:hover{color:var(--cream,#f4ecd8);border-color:rgba(216,178,90,.5)}
     .cat-tab[aria-selected="true"]{
       color:#0b0d12;background:linear-gradient(120deg,var(--gold-soft),var(--gold));
@@ -140,6 +139,80 @@
       font-size:clamp(1.5rem,3.6vw,2rem);margin-top:.8rem}
     .cat-empty__desc{color:var(--dim);font-size:1.05rem;margin-top:.6rem}
 
+    .sales-points{max-width:1100px;margin:clamp(2rem,5vw,3.2rem) auto 0;display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
+    .sales-card{background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(0,0,0,.18));
+      border:1px solid rgba(216,178,90,.2);border-radius:22px;padding:1.4rem 1.2rem;
+      text-align:left;box-shadow:0 18px 40px -24px rgba(0,0,0,.85);}
+    .sales-card__icon{font-size:1.4rem;color:var(--gold-soft);margin-bottom:.6rem}
+    .sales-card h3{font-family:"Big Shoulders Display",sans-serif;font-size:1.7rem;
+      letter-spacing:.02em;margin-bottom:.45rem;color:var(--ink)}
+    .sales-card p{color:var(--dim);font-size:1.02rem;line-height:1.6}
+
+    .story-cta{
+      max-width:1100px;margin:clamp(2.5rem,6vw,4rem) auto 0;display:grid;grid-template-columns:1.2fr .8fr;
+      gap:1.2rem;align-items:stretch;
+    }
+    .story-cta__content,
+    .story-cta__card,
+    .palette-builder{
+      background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(0,0,0,.16));
+      border:1px solid rgba(216,178,90,.2);border-radius:26px;padding:clamp(1.3rem,3vw,2.2rem);
+      box-shadow:0 18px 40px -24px rgba(0,0,0,.85);
+    }
+    .story-cta__content h2,
+    .palette-builder h2{font-family:"Big Shoulders Display",sans-serif;font-weight:700;
+      font-size:clamp(2rem,4vw,3rem);line-height:1.05;margin:.6rem 0 .8rem;letter-spacing:-.02em}
+    .story-cta__content p{color:var(--dim);font-size:1.08rem;line-height:1.7}
+    .story-cta__quote{
+      margin-top:1rem;padding:1rem 1.1rem;border-left:3px solid rgba(var(--glow),.9);
+      background:rgba(255,255,255,.02);font-family:"Cormorant Garamond",serif;font-style:italic;
+      color:var(--ink);font-size:1.35rem;line-height:1.5;border-radius:0 14px 14px 0;
+    }
+    .story-cta__actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
+    .story-cta__button,.palette-actions button{
+      border:0;cursor:pointer;border-radius:999px;padding:.8rem 1.3rem;
+      font-family:"Marcellus",serif;letter-spacing:.12em;text-transform:uppercase;
+      font-size:.72rem;transition:transform .35s ease,box-shadow .35s ease;
+    }
+    .story-cta__button{background:linear-gradient(120deg,var(--gold-soft),var(--gold));color:#0b0d12;box-shadow:0 14px 30px -14px rgba(216,178,90,.6)}
+    .story-cta__button--ghost{background:transparent;border:1px solid rgba(216,178,90,.35);color:var(--gold-soft)}
+    .story-cta__button:hover,.palette-actions button:hover{transform:translateY(-2px)}
+    .story-cta__card{display:flex;flex-direction:column;justify-content:center}
+    .story-cta__label{display:block;font-family:"Marcellus",serif;letter-spacing:.16em;text-transform:uppercase;
+      font-size:.7rem;color:var(--gold-soft);margin-bottom:.7rem}
+    .story-cta__card textarea{
+      width:100%;min-height:190px;resize:vertical;border-radius:18px;border:1px solid rgba(216,178,90,.25);
+      background:rgba(7,8,11,.45);color:var(--ink);padding:1rem 1rem;font:inherit;line-height:1.6;
+    }
+    .story-cta__card textarea:focus{outline:2px solid rgba(var(--glow),.7);outline-offset:2px}
+
+    .palette-builder{margin-top:clamp(2rem,5vw,3.5rem)}
+    .palette-builder__wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem;align-items:stretch}
+    .palette-swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem;margin-top:1rem}
+    .swatch{position:relative;min-height:118px;border-radius:18px;border:1px solid rgba(255,255,255,.08);overflow:hidden;background:var(--swatch-color);}
+    .swatch::after{content:attr(data-label);position:absolute;left:.7rem;bottom:.7rem;right:.7rem;
+      font-family:"Marcellus",serif;letter-spacing:.08em;text-transform:uppercase;font-size:.58rem;
+      color:rgba(255,255,255,.92);text-shadow:0 2px 10px rgba(0,0,0,.3)}
+    .palette-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
+    .palette-actions button{background:rgba(255,255,255,.03);color:var(--gold-soft);border:1px solid rgba(216,178,90,.25)}
+    .palette-actions button.primary{background:linear-gradient(120deg,var(--gold-soft),var(--gold));color:#0b0d12;border:none}
+    .palette-preview{display:flex;align-items:stretch;justify-content:center}
+    .palette-preview__mock{width:100%;min-height:260px;border-radius:22px;border:1px solid rgba(216,178,90,.15);
+      background:linear-gradient(135deg, var(--preview-1), var(--preview-2));padding:1rem;display:flex;align-items:flex-end}
+    .palette-preview__card{width:100%;background:rgba(12,14,18,.38);backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:1rem;color:var(--ink);box-shadow:0 18px 36px -26px rgba(0,0,0,.75)}
+    .palette-preview__eyebrow{font-family:"Marcellus",serif;letter-spacing:.2em;text-transform:uppercase;
+      font-size:.62rem;color:var(--preview-3)}
+    .palette-preview__name{font-family:"Big Shoulders Display",sans-serif;font-size:2rem;line-height:1.1;margin:.6rem 0}
+    .palette-preview__meta{font-size:.95rem;color:rgba(244,236,216,.82)}
+    .palette-preview__badge{display:inline-block;margin-top:1rem;padding:.5rem .8rem;border-radius:999px;
+      background:var(--preview-4);color:#0b0d12;font-family:"Marcellus",serif;letter-spacing:.12em;text-transform:uppercase;font-size:.62rem}
+
+    @media (max-width: 760px){
+      .sales-points,.story-cta,.palette-builder__wrap{grid-template-columns:1fr}
+    }
+
     @media (prefers-reduced-motion:reduce){
       .car-card,.car-info__name,.car-info__desc,.car-cta,.car-dot,.cat-tab{transition:none}
     }
@@ -153,6 +226,65 @@
        explore the countdown, calendar, and venue map. We'll personalise the one you love
        with your names, dates, and photos.</p>
   </header>
+
+  <section class="sales-points" aria-label="Why couples choose our wedding websites">
+    <article class="sales-card">
+      <div class="sales-card__icon">✦</div>
+      <h3>Wedding Inspiration</h3>
+      <p>Browse elegant, modern wedding ideas and discover the look that matches your dream day before choosing a final invitation design.</p>
+    </article>
+    <article class="sales-card">
+      <div class="sales-card__icon">✉</div>
+      <h3>Digital Invitations</h3>
+      <p>Send a polished digital invitation with RSVP, countdown, venue details, and a memorable guest experience built for every celebration.</p>
+    </article>
+    <article class="sales-card">
+      <div class="sales-card__icon">❤</div>
+      <h3>Personalised for Your Day</h3>
+      <p>Choose a style you love, then tailor it with your names, date, story, and photos for a truly personal wedding website.</p>
+    </article>
+  </section>
+
+  <section class="story-cta" aria-label="Share your story and we will create a custom site">
+    <div class="story-cta__content">
+      <span class="kicker">Your story deserves a beautiful beginning</span>
+      <h2>We design wedding websites that feel like your life, not just another template.</h2>
+      <p>Every love story is different — the quiet looks, the little rituals, the people who shaped your journey, the memories that made you who you are. Share your story with us, and we will create a wedding invitation experience that reflects your personality, your values, and your forever.</p>
+      <p class="story-cta__quote">“Love is not just a chapter — it is a story told in moments, memories, and the people who make your world feel like home.”</p>
+      <div class="story-cta__actions">
+        <button class="story-cta__button" type="button">Share your story</button>
+        <button class="story-cta__button story-cta__button--ghost" type="button">Start a custom design</button>
+      </div>
+    </div>
+    <div class="story-cta__card">
+      <label class="story-cta__label" for="storyInput">Tell us about your journey</label>
+      <textarea id="storyInput" placeholder="We met in the quietest moment of our lives... we always knew we wanted a celebration that felt like us, full of warmth, faith, family, and joy.">We met in the quietest moment of our lives... we always knew we wanted a celebration that felt like us, full of warmth, faith, family, and joy.</textarea>
+    </div>
+  </section>
+
+  <section class="palette-builder" aria-label="Palette generator">
+    <div class="palette-builder__wrap">
+      <div>
+        <span class="kicker">Color your story</span>
+        <h2>Build a palette that matches your wedding mood</h2>
+        <div class="palette-swatches" id="paletteSwatches" aria-live="polite"></div>
+        <div class="palette-actions">
+          <button class="primary" id="generatePalette" type="button">Generate palette</button>
+          <button id="copyPalette" type="button">Copy palette</button>
+        </div>
+      </div>
+      <div class="palette-preview">
+        <div class="palette-preview__mock" id="palettePreviewMock">
+          <div class="palette-preview__card">
+            <div class="palette-preview__eyebrow">Your personal palette</div>
+            <div class="palette-preview__name">Aisha &amp; Rayan</div>
+            <div class="palette-preview__meta">Elegant, warm, and beautifully personal</div>
+            <div class="palette-preview__badge">Wedding Story</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div class="cat-tabs" id="catTabs" role="tablist" aria-label="Wedding tradition"></div>
 
@@ -240,8 +372,7 @@
       tab.className = 'cat-tab';
       tab.setAttribute('role', 'tab');
       tab.dataset.key = cat.key;
-      tab.innerHTML = `<span>${cat.icon}</span><span>${cat.label}</span>` +
-        (cat.styles.length ? `<span class="cat-tab__count">(${cat.styles.length})</span>` : `<span class="cat-tab__count">Soon</span>`);
+      tab.innerHTML = `<span>${cat.icon}</span><span>${cat.label}</span>`;
       tab.addEventListener('click', () => selectCategory(cat.key));
       tabsEl.appendChild(tab);
     });
@@ -360,6 +491,67 @@
     });
 
     selectCategory(CATEGORIES[0].key);
+
+    /* ---------- Palette generator inspired by Coolors ---------- */
+    const paletteSwatches = document.getElementById('paletteSwatches');
+    const palettePreview = document.getElementById('palettePreviewMock');
+    const generatePaletteBtn = document.getElementById('generatePalette');
+    const copyPaletteBtn = document.getElementById('copyPalette');
+    let currentPalette = [];
+
+    function hslToHex(h, s, l) {
+      s /= 100; l /= 100;
+      const c = (1 - Math.abs(2 * l - 1)) * s;
+      const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+      const m = l - c / 2;
+      let r = 0, g = 0, b = 0;
+
+      if (h >= 0 && h < 60) [r, g, b] = [c, x, 0];
+      else if (h < 120) [r, g, b] = [x, c, 0];
+      else if (h < 180) [r, g, b] = [0, c, x];
+      else if (h < 240) [r, g, b] = [0, x, c];
+      else if (h < 300) [r, g, b] = [x, 0, c];
+      else [r, g, b] = [c, 0, x];
+
+      const toHex = (v) => Math.round((v + m) * 255).toString(16).padStart(2, '0');
+      return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+    }
+
+    function generatePalette() {
+      const baseHue = Math.floor(Math.random() * 360);
+      const offsets = [0, 22, 40, 62, 92];
+      currentPalette = offsets.map((offset, index) => {
+        const hue = (baseHue + offset + index * 6) % 360;
+        const saturation = index === 0 ? 62 : 58 + (index % 2) * 8;
+        const lightness = index === 0 ? 62 : 48 + index * 8;
+        return hslToHex(hue, saturation, lightness);
+      });
+
+      paletteSwatches.innerHTML = currentPalette.map((hex, i) => `
+        <div class="swatch" data-label="${String.fromCharCode(65 + i)}" style="--swatch-color:${hex};"></div>
+      `).join('');
+
+      palettePreview.style.setProperty('--preview-1', currentPalette[0]);
+      palettePreview.style.setProperty('--preview-2', currentPalette[1]);
+      palettePreview.style.setProperty('--preview-3', currentPalette[2]);
+      palettePreview.style.setProperty('--preview-4', currentPalette[3]);
+      palettePreview.style.background = `linear-gradient(135deg, ${currentPalette[0]}, ${currentPalette[1]})`;
+    }
+
+    generatePaletteBtn.addEventListener('click', generatePalette);
+    copyPaletteBtn.addEventListener('click', async () => {
+      if (!currentPalette.length) generatePalette();
+      try {
+        await navigator.clipboard.writeText(currentPalette.join(', '));
+        copyPaletteBtn.textContent = 'Copied';
+        setTimeout(() => { copyPaletteBtn.textContent = 'Copy palette'; }, 1200);
+      } catch (error) {
+        copyPaletteBtn.textContent = 'Copy failed';
+        setTimeout(() => { copyPaletteBtn.textContent = 'Copy palette'; }, 1200);
+      }
+    });
+
+    generatePalette();
   </script>
 </body>
 </html>

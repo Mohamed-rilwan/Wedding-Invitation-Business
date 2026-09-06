@@ -1,0 +1,41 @@
+name: Deploy development to preview site
+
+on:
+  push:
+    branches: [development]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-dev
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Same payload as the production workflow, minus CNAME so the preview
+      # stays on the target repo's *.github.io URL.
+      - name: Prepare site
+        run: |
+          mkdir -p _site/css _site/js
+          cp index.html Background.mp3 _site/
+          cp css/styles.css _site/css/
+          cp js/main.js js/shader.js _site/js/
+          cp -r templates _site/templates
+          touch _site/.nojekyll
+
+      - name: Publish to preview repository
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.DEV_PAGES_TOKEN }}
+          external_repository: ${{ vars.DEV_PAGES_REPO }}
+          publish_branch: gh-pages
+          publish_dir: _site
+          force_orphan: true
+          commit_message: "Deploy development @ ${{ github.sha }}"
